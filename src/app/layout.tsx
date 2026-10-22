@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/techcraftlogo.png", type: "image/png" },
+      { url: "/favicon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    shortcut: "/techcraftlogo.png",
-    apple: "/techcraftlogo.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 

@@ -155,7 +155,7 @@ export default function HeroDashboard() {
           <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#08090f] border border-white/5 text-[11px] text-zinc-400 font-mono tracking-tight max-w-[260px] sm:max-w-xs w-full justify-center">
             <Lock className="w-3 h-3 text-emerald-400" />
             <span className="text-zinc-500">https://</span>
-            <span className="text-zinc-200 font-medium">app.techcraft.io</span>
+            <span className="text-zinc-200 font-medium">techcrafttechnologies.tech</span>
             <span className="text-zinc-600">/overview</span>
           </div>
 

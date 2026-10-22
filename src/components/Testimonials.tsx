@@ -1,65 +1,159 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "TechCraft Technologies transformed a complex idea into a product our team could actually use. The attention to detail and technical execution was flawless.",
-    author: "Client Name",
-    role: "CEO, Company Name",
+    company: "BloomWell Healthcare",
+    logo: "/client logos/BloomWell Healthcare Logo.png",
+    tag: "Healthcare & Telehealth",
+    metric: "64% Faster Intake",
+    quote:
+      "TechCraft engineered our patient portal and telemedicine infrastructure with airtight clinical security. The fluid interface transformed how our clinics operate daily.",
+    author: "Dr. Elena Vance",
+    role: "Chief Digital Officer",
+    avatar: "EV",
   },
   {
-    quote: "Their team doesn't just write code; they understand business goals. The platform they built helped us scale operations significantly.",
-    author: "Client Name",
-    role: "CTO, Company Name",
+    company: "IronPeak Construction",
+    logo: "/client logos/IronPeak Construction Logo.png",
+    tag: "Commercial Infrastructure",
+    metric: "35% Cost Optimization",
+    quote:
+      "Managing multi-site commercial projects used to mean fragmented spreadsheets. TechCraft delivered a unified operations platform with real-time job-site telemetry.",
+    author: "Marcus Sterling",
+    role: "VP of Project Operations",
+    avatar: "MS",
   },
   {
-    quote: "A premium experience from start to finish. They delivered an exceptional digital product that exceeded all our expectations.",
-    author: "Client Name",
-    role: "Director of Product, Company Name",
-  }
+    company: "NexaMart Fast Cart",
+    logo: "/client logos/NexaMart Fast Cart Logo.png",
+    tag: "High-Concurrency E-Commerce",
+    metric: "42% Conversion Lift",
+    quote:
+      "Our checkout suffered during peak flash sales. TechCraft re-architected our cart to handle extreme concurrency, achieving sub-second checkouts and immediate revenue gains.",
+    author: "Sophia Chen",
+    role: "Head of Digital Product",
+    avatar: "SC",
+  },
+  {
+    company: "Velora Boutique Hotel",
+    logo: "/client logos/Velora Boutique Hotel Logo.png",
+    tag: "Luxury Hospitality",
+    metric: "55% Direct Bookings",
+    quote:
+      "The custom booking engine and guest concierge portal TechCraft developed elevates our boutique luxury standard. Direct reservations grew dramatically from month one.",
+    author: "Julian Moreau",
+    role: "Managing Director",
+    avatar: "JM",
+  },
+];
+
+// Duplicate for continuous seamless marquee scrolling
+const marqueeTestimonials = [
+  ...testimonials,
+  ...testimonials,
+  ...testimonials,
+  ...testimonials,
 ];
 
 export default function Testimonials() {
   return (
-    <section className="py-32 bg-background relative overflow-hidden transition-colors duration-300">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section className="py-28 md:py-36 bg-background relative overflow-hidden transition-colors duration-300">
+      {/* Ambient Background Glows */}
+      <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 right-10 w-[500px] h-[500px] bg-violet/5 dark:bg-violet/10 blur-[140px] rounded-full pointer-events-none" />
+
+      {/* Section Header */}
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-16 sm:mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-xs font-semibold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase mb-4">
+            Proven Partnerships
+          </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-5">
             What great partnerships look like.
           </h2>
+          <p className="text-base sm:text-lg text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
+            Real outcomes and feedback from the industry leaders who build with TechCraft Technologies.
+          </p>
         </motion.div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="p-8 rounded-3xl bg-white dark:bg-white/[0.02] border border-zinc-200 dark:border-white/5 shadow-sm dark:shadow-none relative group hover:shadow-lg dark:hover:shadow-none transition-shadow"
+      {/* Infinite Moving Marquee Track */}
+      <div className="relative flex max-w-[100vw] overflow-hidden py-4">
+        {/* Left & Right Gradient Fade Masks */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-36 md:w-56 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-36 md:w-56 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
+
+        <div className="testimonials-marquee-track flex items-stretch gap-6 sm:gap-8 w-max px-6">
+          {marqueeTestimonials.map((item, index) => (
+            <div
+              key={`${item.company}-${index}`}
+              className="w-[340px] sm:w-[420px] md:w-[460px] flex-shrink-0 flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-white dark:bg-neutral-900/80 border border-zinc-200/80 dark:border-white/10 shadow-sm dark:shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)] hover:shadow-xl dark:hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 group cursor-default"
             >
-              <Quote className="w-10 h-10 text-zinc-200 dark:text-primary-light/20 mb-6 group-hover:text-zinc-300 dark:group-hover:text-primary-light/40 transition-colors duration-500" />
-              <p className="text-lg text-zinc-800 dark:text-zinc-300 leading-relaxed mb-8 italic">
-                "{testimonial.quote}"
-              </p>
+              {/* Card Top: Brand Badge + Rating & Metric */}
               <div>
-                <div className="font-semibold text-zinc-950 dark:text-white">
-                  {testimonial.author}
+                <div className="flex items-center justify-between gap-3 mb-6">
+                  {/* Brand Logo in clean high-contrast badge */}
+                  <div className="px-3 py-1.5 rounded-xl bg-zinc-100 dark:bg-white/[0.96] border border-zinc-200/60 dark:border-white/20 inline-flex items-center justify-center shadow-xs">
+                    <img
+                      src={encodeURI(item.logo)}
+                      alt={item.company}
+                      loading="lazy"
+                      className="h-6 sm:h-7 w-auto max-w-[120px] object-contain select-none"
+                    />
+                  </div>
+
+                  {/* 5-Star Rating */}
+                  <div className="flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-amber-400 text-amber-400"
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="text-sm text-zinc-500">
-                  {testimonial.role}
+
+                {/* Metric / Impact Badge */}
+                <div className="mb-4">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-semibold bg-primary/10 text-primary-light border border-primary/20">
+                    {item.metric}
+                  </span>
                 </div>
+
+                {/* Quote Text */}
+                <p className="text-zinc-700 dark:text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
+                  "{item.quote}"
+                </p>
               </div>
-            </motion.div>
+
+              {/* Card Bottom: Author Info */}
+              <div className="pt-5 border-t border-zinc-100 dark:border-white/10 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary/20 to-violet/20 border border-primary/30 text-primary-light font-bold text-xs flex items-center justify-center shrink-0">
+                    {item.avatar}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-zinc-950 dark:text-white text-sm sm:text-base leading-tight">
+                      {item.author}
+                    </h4>
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                      {item.role} · <span className="font-medium text-zinc-700 dark:text-zinc-300">{item.company}</span>
+                    </p>
+                  </div>
+                </div>
+
+                <Quote className="w-7 h-7 text-zinc-200 dark:text-white/10 group-hover:text-primary-light/30 transition-colors shrink-0" />
+              </div>
+            </div>
           ))}
         </div>
       </div>

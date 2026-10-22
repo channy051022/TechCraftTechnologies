@@ -128,6 +128,31 @@ body {
   }
 }
 
+/* Seamless marquee ticker with pause-on-hover */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.testimonials-marquee-track {
+  animation: marqueeScroll 45s linear infinite;
+  will-change: transform;
+}
+
+.testimonials-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee-track {
+    animation: none !important;
+  }
+}
+
 ::selection {
   background: rgba(50, 145, 255, 0.3);
   color: #000;
