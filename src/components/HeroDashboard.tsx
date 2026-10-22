@@ -100,58 +100,48 @@ export default function HeroDashboard() {
 
   return (
     <div className="relative w-full max-w-2xl mx-auto lg:max-w-none">
-      {/* Outer Glow Halo matching brand palette */}
-      <div className="absolute -inset-1.5 bg-gradient-to-r from-primary/30 via-violet/25 to-primary-light/30 rounded-[28px] blur-xl opacity-75 dark:opacity-60 -z-10 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+      {/* Continuous Smooth Float Wrapper: gentle 7px floating cycle over 6s ease-in-out */}
+      <div className="hero-dashboard-floating w-full">
+        {/* Reversed 3D Trapezoid Perspective Wrapper */}
+        <div className="hero-dashboard-perspective relative w-full transform-gpu">
+          {/* Outer Glow Halo matching brand palette */}
+          <div className="absolute -inset-2 bg-gradient-to-r from-primary/30 via-violet/25 to-primary-light/30 rounded-[30px] blur-2xl opacity-75 dark:opacity-60 -z-10 pointer-events-none" />
 
-      {/* Floating Accent 1: Deploy Success Badge */}
-      <motion.div
-        initial={{ opacity: 0, y: -20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.6, duration: 0.6 }}
-        className="absolute -top-5 -right-3 md:-top-6 md:-right-6 z-30 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-neutral-900/90 text-white border border-emerald-500/30 shadow-lg shadow-emerald-500/10 backdrop-blur-md"
-      >
-        <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-        </span>
-        <span className="text-xs font-semibold tracking-tight text-emerald-400">
-          Deploy Succeeded
-        </span>
-        <span className="text-[10px] text-zinc-400 font-medium">9.4s</span>
-      </motion.div>
+          {/* Floating Accent 1: Deploy Success Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -15, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="absolute -top-4 -right-2 md:-top-5 md:-right-5 z-30 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-neutral-900/95 text-white border border-emerald-500/30 shadow-xl shadow-emerald-500/10 backdrop-blur-md"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span className="text-xs font-semibold tracking-tight text-emerald-400">
+              Deploy Succeeded
+            </span>
+            <span className="text-[10px] text-zinc-400 font-medium">9.4s</span>
+          </motion.div>
 
-      {/* Floating Accent 2: Uptime & Speed Pill */}
-      <motion.div
-        initial={{ opacity: 0, y: 20, scale: 0.9 }}
-        animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.8, duration: 0.6 }}
-        className="absolute -bottom-5 -left-3 md:-bottom-6 md:-left-6 z-30 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-neutral-900/90 text-white border border-primary/30 shadow-lg shadow-primary/10 backdrop-blur-md"
-      >
-        <Shield className="w-3.5 h-3.5 text-primary-light" />
-        <span className="text-xs font-semibold text-zinc-200">
-          99.98% SLA
-        </span>
-        <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary-light font-medium">
-          Zero Downtime
-        </span>
-      </motion.div>
+          {/* Floating Accent 2: Uptime & Speed Pill */}
+          <motion.div
+            initial={{ opacity: 0, y: 15, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 0.7, duration: 0.6 }}
+            className="absolute -bottom-4 -left-2 md:-bottom-5 md:-left-5 z-30 hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-neutral-900/95 text-white border border-primary/30 shadow-xl shadow-primary/10 backdrop-blur-md"
+          >
+            <Shield className="w-3.5 h-3.5 text-primary-light" />
+            <span className="text-xs font-semibold text-zinc-200">
+              99.98% SLA
+            </span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary-light font-medium">
+              Zero Downtime
+            </span>
+          </motion.div>
 
-      {/* Main Window Wrapper with subtle floating motion */}
-      <motion.div
-        animate={
-          shouldReduceMotion
-            ? {}
-            : {
-                y: [-4, 4, -4],
-              }
-        }
-        transition={{
-          duration: 7,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-        className="w-full rounded-2xl md:rounded-[22px] bg-[#0c0e17] text-white border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.06)] overflow-hidden"
-      >
+          {/* Main Window Wrapper */}
+          <div className="w-full rounded-2xl md:rounded-[22px] bg-[#0c0e17] text-white border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.08)] overflow-hidden">
         {/* Browser Chrome Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#111422] border-b border-white/5 select-none">
           {/* Traffic Light Buttons */}
@@ -598,7 +588,9 @@ export default function HeroDashboard() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
+  </div>
+</div>
   );
 }

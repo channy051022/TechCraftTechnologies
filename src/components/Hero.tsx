@@ -98,7 +98,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 40, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="lg:col-span-6 xl:col-span-7 w-full flex items-center justify-center lg:justify-end"
+            className="lg:col-span-6 xl:col-span-7 w-full flex items-center justify-center lg:justify-end py-6 lg:py-8"
           >
             <HeroDashboard />
           </motion.div>

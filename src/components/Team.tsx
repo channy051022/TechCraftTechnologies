@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import Link from "next/link";
-import Image from "next/link"; // For later use
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -25,7 +24,7 @@ const team = [
     role: "Co-Founder & Full-Stack Developer",
     description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
     tags: ["React", "Node.js", "System Architecture"],
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80&w=400&h=400", // Professional placeholder
+    image: "/images/Christian%20Faith%20Mestola.png",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
@@ -93,67 +92,77 @@ export default function Team() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative p-8 rounded-3xl bg-white dark:bg-neutral-900/40 border border-zinc-200 dark:border-white/5 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:bg-neutral-900/60 dark:hover:border-white/10 transition-all duration-500 flex flex-col h-full"
+              className="group relative h-[480px] sm:h-[520px] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 hover:ring-1 hover:ring-primary/30 transition-all duration-500 flex flex-col justify-end focus-within:ring-2 focus-within:ring-primary"
             >
-              {/* Profile Image */}
-              <div className="mb-8 relative w-24 h-24 rounded-full overflow-hidden border-2 border-zinc-100 dark:border-white/10 shadow-sm">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.4 }}
+              {/* Full Edge-to-Edge Image with Smooth Zoom */}
+              <div className="absolute inset-0 w-full h-full overflow-hidden">
+                <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center transform scale-100 group-hover:scale-[1.08] group-focus-within:scale-[1.08] transition-transform duration-700 ease-out motion-reduce:transform-none"
+                  loading="lazy"
                 />
               </div>
 
-              {/* Info */}
-              <div className="flex-grow">
-                <h3 className="text-2xl font-semibold text-foreground mb-1 group-hover:text-primary-light transition-colors">
+              {/* Default Subtle Bottom Gradient for Depth */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none transition-opacity duration-500" />
+
+              {/* Dark Translucent Gradient Overlay for Hover State */}
+              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/75 to-neutral-950/30 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-90 transition-opacity duration-500 pointer-events-none backdrop-blur-[2px]" />
+
+              {/* Information Revealed Near Bottom */}
+              <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">
+                {/* Full Name */}
+                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
                   {member.name}
                 </h3>
-                <p className="text-primary-light font-medium text-sm mb-4">
+
+                {/* Role / Job Title */}
+                <p className="text-primary-light font-medium text-sm sm:text-base mb-3 transition-all duration-500 delay-75 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
                   {member.role}
                 </p>
-                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-6">
+
+                {/* Short Description */}
+                <p className="text-zinc-300 text-sm leading-relaxed mb-4 line-clamp-3 transition-all duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
                   {member.description}
                 </p>
 
                 {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
+                <div className="flex flex-wrap gap-2 mb-6 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
                   {member.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-300 bg-zinc-50 dark:bg-white/5 rounded-md border border-zinc-200 dark:border-white/5"
+                      className="px-2.5 py-1 text-xs font-medium text-zinc-200 bg-white/10 rounded-md border border-white/15 backdrop-blur-sm"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
 
-              {/* Social Links */}
-              <div className="flex items-center gap-4 pt-6 border-t border-zinc-100 dark:border-white/5">
-                <Link
-                  href={member.social.github}
-                  aria-label={`${member.name}'s GitHub`}
-                  className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-                >
-                  <GithubIcon className="w-5 h-5" />
-                </Link>
-                <Link
-                  href={member.social.linkedin}
-                  aria-label={`${member.name}'s LinkedIn`}
-                  className="text-zinc-400 hover:text-[#0A66C2] dark:hover:text-white transition-colors"
-                >
-                  <LinkedinIcon className="w-5 h-5" />
-                </Link>
-                <Link
-                  href={member.social.email}
-                  aria-label={`Email ${member.name}`}
-                  className="text-zinc-400 hover:text-primary-light dark:hover:text-white transition-colors"
-                >
-                  <Mail className="w-5 h-5" />
-                </Link>
+                {/* Social Media Links */}
+                <div className="flex items-center gap-4 pt-4 border-t border-white/15 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
+                  <Link
+                    href={member.social.github}
+                    aria-label={`${member.name}'s GitHub`}
+                    className="text-zinc-300 hover:text-white transition-colors p-1"
+                  >
+                    <GithubIcon className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href={member.social.linkedin}
+                    aria-label={`${member.name}'s LinkedIn`}
+                    className="text-zinc-300 hover:text-[#0A66C2] transition-colors p-1"
+                  >
+                    <LinkedinIcon className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href={member.social.email}
+                    aria-label={`Email ${member.name}`}
+                    className="text-zinc-300 hover:text-primary-light transition-colors p-1"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}

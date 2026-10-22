@@ -87,6 +87,47 @@ body {
   }
 }
 
+/* Smooth continuous floating animation for hero dashboard mockup */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+.hero-dashboard-floating {
+  animation: heroFloat 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-dashboard-floating {
+    animation: none !important;
+  }
+}
+
+/* 3D trapezoid perspective matching user illustration (shorter on left, taller on right) */
+.hero-dashboard-perspective {
+  transform: perspective(1000px) rotateY(-13deg);
+  transform-origin: center center;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-out;
+}
+
+@media (max-width: 640px) {
+  .hero-dashboard-perspective {
+    transform: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-dashboard-perspective {
+    transform: perspective(1000px) rotateY(-7deg);
+  }
+}
+
 ::selection {
   background: rgba(50, 145, 255, 0.3);
   color: #000;
