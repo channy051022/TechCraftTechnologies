@@ -22,9 +22,13 @@ export const metadata: Metadata = {
     description: "TechCraft Technologies builds modern digital products, web platforms, and custom software for businesses ready to move forward.",
   },
   icons: {
-    icon: "/techcraftlogo.png",
+    icon: [
+      { url: "/techcraftlogo.png", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/techcraftlogo.png",
     apple: "/techcraftlogo.png",
-  }
+  },
 };
 
 export default function RootLayout({

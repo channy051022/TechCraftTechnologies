@@ -20,7 +20,7 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 const team = [
   {
-    name: "Christian Mestola",
+    name: "Christian Faith Mestola",
     role: "Co-Founder & Full-Stack Developer",
     description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
     tags: ["React", "Node.js", "System Architecture"],
@@ -28,34 +28,35 @@ const team = [
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
-      email: "mailto:christian@example.com",
+      email: "mailto:christianfaihtmestola.github@gmail.com",
     }
   },
   {
-    name: "Developer Two",
-    role: "Co-Founder & Frontend Engineer",
+    name: "Belly Joe",
+    role: "Co-Founder & Full-Stack Developer",
     description: "Focused on UI/UX, frontend architecture, and crafting fluid, interactive digital experiences that users love.",
     tags: ["Next.js", "TypeScript", "Framer Motion"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400&h=400",
+    image: "/images/Belly%20Joe.png",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
-      email: "mailto:dev2@example.com",
+      email: "mailto:belly@example.com",
     }
   },
   {
-    name: "Developer Three",
-    role: "Co-Founder & Backend Engineer",
+    name: "Wendel S. Sabelo",
+    role: "Co-Founder & Full-Stack Developer",
     description: "Expert in designing secure APIs, optimizing databases, and deploying resilient cloud infrastructure.",
     tags: ["PostgreSQL", "Go", "AWS"],
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
     social: {
       github: "https://github.com",
       linkedin: "https://linkedin.com",
-      email: "mailto:dev3@example.com",
+      email: "mailto:wendel@example.com",
     }
   }
 ];
+
 
 export default function Team() {
   return (
