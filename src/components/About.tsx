@@ -6,7 +6,7 @@ const nodes = ["Idea", "Strategy", "Design", "Technology", "Growth"];
 
 export default function About() {
   return (
-    <section id="about" className="py-32 bg-zinc-50 dark:bg-neutral-950 border-t border-zinc-200 dark:border-white/5 relative overflow-hidden transition-colors duration-300">
+    <section id="about" className="py-16 md:py-20 bg-zinc-50 dark:bg-neutral-950 border-t border-zinc-200 dark:border-white/5 relative overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

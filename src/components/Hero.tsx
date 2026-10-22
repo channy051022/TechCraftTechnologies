@@ -24,7 +24,7 @@ const item = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 lg:py-32 overflow-hidden">
+    <section className="relative flex items-center justify-center pt-24 pb-12 lg:pt-28 lg:pb-14 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         {/* Soft Ambient Radial Spotlight */}
@@ -75,20 +75,20 @@ export default function Hero() {
             </motion.div>
 
             {/* CTAs */}
-            <motion.div variants={item} className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+            <motion.div variants={item} className="flex flex-row items-center gap-2.5 sm:gap-4 w-auto">
               <Link
                 href="#contact"
-                className="w-full sm:w-auto justify-center group flex items-center gap-2 px-8 py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-zinc-950/10 dark:shadow-none"
+                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs sm:text-sm md:text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-md sm:shadow-lg shadow-zinc-950/10 dark:shadow-none whitespace-nowrap"
               >
                 Start a Project
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="#work"
-                className="w-full sm:w-auto justify-center group flex items-center gap-2 px-8 py-4 rounded-full bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-zinc-900 dark:text-white font-semibold text-base hover:bg-zinc-50 dark:hover:bg-white/10 transition-all"
+                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-zinc-900 dark:text-white font-semibold text-xs sm:text-sm md:text-base hover:bg-zinc-50 dark:hover:bg-white/10 transition-all whitespace-nowrap"
               >
                 Explore Our Work
-                <ChevronRight className="w-5 h-5 text-zinc-500 dark:text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-900 dark:group-hover:text-white transition-all" />
+                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-500 dark:text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-900 dark:group-hover:text-white transition-all" />
               </Link>
             </motion.div>
           </motion.div>

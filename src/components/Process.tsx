@@ -42,14 +42,14 @@ export default function Process() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="process" className="py-32 bg-background relative transition-colors duration-300" ref={containerRef}>
+    <section id="process" className="py-16 md:py-20 bg-background relative transition-colors duration-300" ref={containerRef}>
       <div className="container mx-auto px-6 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-24"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             From idea to impact.

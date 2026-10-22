@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section id="contact" className="relative py-40 overflow-hidden bg-zinc-950 dark:bg-black transition-colors duration-300">
+    <section id="contact" className="relative py-20 md:py-24 overflow-hidden bg-zinc-950 dark:bg-black transition-colors duration-300">
       {/* Dramatic Animated Background (Maintained dark even in light mode) */}
       <div className="absolute inset-0 z-0">
         <motion.div
@@ -38,27 +38,27 @@ export default function CTA() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
             Have an idea worth building?
           </h2>
-          <p className="text-xl md:text-2xl text-zinc-300 font-light mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-zinc-300 font-light mb-8 max-w-2xl mx-auto">
             Let's turn it into something people can use, love, and remember.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-5 flex-wrap sm:flex-nowrap">
             <Link
               href="mailto:hello@techcrafttechnologies.com"
-              className="group flex items-center gap-2 px-10 py-5 rounded-full bg-white text-zinc-950 font-semibold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)]"
+              className="group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full bg-white text-zinc-950 font-semibold text-xs sm:text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] whitespace-nowrap"
             >
               Start a Conversation
-              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               href="#work"
-              className="group flex items-center gap-2 px-10 py-5 rounded-full bg-white/5 border border-white/20 text-white font-semibold text-lg hover:bg-white/10 transition-colors"
+              className="group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full bg-white/5 border border-white/20 text-white font-semibold text-xs sm:text-base md:text-lg hover:bg-white/10 transition-colors whitespace-nowrap"
             >
               View Our Work
-              <ChevronRight className="w-6 h-6 text-zinc-400 group-hover:translate-x-1 group-hover:text-white transition-all" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-zinc-400 group-hover:translate-x-1 group-hover:text-white transition-all" />
             </Link>
           </div>
         </motion.div>

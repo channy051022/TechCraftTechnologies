@@ -11,9 +11,6 @@ const testimonials = [
     metric: "64% Faster Intake",
     quote:
       "TechCraft engineered our patient portal and telemedicine infrastructure with airtight clinical security. The fluid interface transformed how our clinics operate daily.",
-    author: "Dr. Elena Vance",
-    role: "Chief Digital Officer",
-    avatar: "EV",
   },
   {
     company: "IronPeak Construction",
@@ -22,9 +19,6 @@ const testimonials = [
     metric: "35% Cost Optimization",
     quote:
       "Managing multi-site commercial projects used to mean fragmented spreadsheets. TechCraft delivered a unified operations platform with real-time job-site telemetry.",
-    author: "Marcus Sterling",
-    role: "VP of Project Operations",
-    avatar: "MS",
   },
   {
     company: "NexaMart Fast Cart",
@@ -33,9 +27,6 @@ const testimonials = [
     metric: "42% Conversion Lift",
     quote:
       "Our checkout suffered during peak flash sales. TechCraft re-architected our cart to handle extreme concurrency, achieving sub-second checkouts and immediate revenue gains.",
-    author: "Sophia Chen",
-    role: "Head of Digital Product",
-    avatar: "SC",
   },
   {
     company: "Velora Boutique Hotel",
@@ -44,9 +35,6 @@ const testimonials = [
     metric: "55% Direct Bookings",
     quote:
       "The custom booking engine and guest concierge portal TechCraft developed elevates our boutique luxury standard. Direct reservations grew dramatically from month one.",
-    author: "Julian Moreau",
-    role: "Managing Director",
-    avatar: "JM",
   },
 ];
 
@@ -60,13 +48,13 @@ const marqueeTestimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-28 md:py-36 bg-background relative overflow-hidden transition-colors duration-300">
+    <section className="py-16 md:py-20 bg-background relative overflow-hidden transition-colors duration-300">
       {/* Ambient Background Glows */}
       <div className="absolute top-1/3 left-10 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 blur-[140px] rounded-full pointer-events-none" />
       <div className="absolute bottom-1/3 right-10 w-[500px] h-[500px] bg-violet/5 dark:bg-violet/10 blur-[140px] rounded-full pointer-events-none" />
 
       {/* Section Header */}
-      <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-16 sm:mb-20">
+      <div className="container mx-auto px-6 max-w-7xl relative z-10 mb-10 sm:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,23 +123,18 @@ export default function Testimonials() {
                 </p>
               </div>
 
-              {/* Card Bottom: Author Info */}
+              {/* Card Bottom: Company Name Only */}
               <div className="pt-5 border-t border-zinc-100 dark:border-white/10 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-primary/20 to-violet/20 border border-primary/30 text-primary-light font-bold text-xs flex items-center justify-center shrink-0">
-                    {item.avatar}
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-zinc-950 dark:text-white text-sm sm:text-base leading-tight">
-                      {item.author}
-                    </h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                      {item.role} · <span className="font-medium text-zinc-700 dark:text-zinc-300">{item.company}</span>
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-semibold text-zinc-950 dark:text-white text-base tracking-tight">
+                    {item.company}
+                  </h4>
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                    {item.tag}
+                  </p>
                 </div>
 
-                <Quote className="w-7 h-7 text-zinc-200 dark:text-white/10 group-hover:text-primary-light/30 transition-colors shrink-0" />
+                <Quote className="w-6 h-6 text-zinc-200 dark:text-white/10 group-hover:text-primary-light/30 transition-colors shrink-0" />
               </div>
             </div>
           ))}

@@ -22,9 +22,9 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-100 dark:bg-background pt-24 pb-12 border-t border-zinc-200 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
+    <footer className="bg-zinc-100 dark:bg-background pt-14 md:pt-16 pb-10 border-t border-zinc-200 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 mb-12 md:mb-14">
           
           {/* Brand */}
           <div className="lg:col-span-2">

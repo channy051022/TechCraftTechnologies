@@ -60,7 +60,7 @@ const team = [
 
 export default function Team() {
   return (
-    <section id="team" className="py-32 relative bg-background border-t border-zinc-200 dark:border-white/5 transition-colors duration-300 overflow-hidden">
+    <section id="team" className="py-16 md:py-20 relative bg-background border-t border-zinc-200 dark:border-white/5 transition-colors duration-300 overflow-hidden">
       {/* Decorative Background Glows */}
       <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none -translate-x-1/2" />
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-violet/5 dark:bg-violet/10 blur-[120px] rounded-full pointer-events-none translate-x-1/2" />
@@ -73,7 +73,7 @@ export default function Team() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20 max-w-3xl mx-auto"
+          className="text-center mb-12 md:mb-14 max-w-3xl mx-auto"
         >
           <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-xs font-semibold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase mb-6">
             The People Behind The Product
@@ -85,7 +85,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 md:mb-14">
           {team.map((member, index) => (
             <motion.div
               key={index}

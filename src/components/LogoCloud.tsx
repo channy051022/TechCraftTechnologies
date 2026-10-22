@@ -37,20 +37,20 @@ const marqueeLogos = [
 
 export default function LogoCloud() {
   return (
-    <section className="py-20 md:py-24 border-y border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-neutral-900/30 overflow-hidden relative transition-colors duration-300">
+    <section className="py-12 md:py-16 border-y border-zinc-200 dark:border-white/5 bg-zinc-50/50 dark:bg-neutral-900/30 overflow-hidden relative transition-colors duration-300">
       {/* Decorative Brand Ambient Glows */}
       <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-96 h-96 bg-primary/5 dark:bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-violet/5 dark:bg-violet/10 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Section Headline */}
-      <div className="container mx-auto px-6 mb-12 sm:mb-14 relative z-10">
+      <div className="container mx-auto px-6 mb-8 sm:mb-10 relative z-10">
         <p className="text-center text-xs md:text-sm font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider uppercase">
           Technology built for businesses that want to move forward.
         </p>
       </div>
 
       {/* Infinite Moving Marquee Track with No Logo Backgrounds */}
-      <div className="relative flex max-w-[100vw] overflow-hidden py-6 sm:py-8">
+      <div className="relative flex max-w-[100vw] overflow-hidden py-2 sm:py-4">
         {/* Left & Right Gradient Fade Masks */}
         <div className="absolute left-0 top-0 bottom-0 w-28 md:w-56 bg-gradient-to-r from-zinc-50/90 dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-28 md:w-56 bg-gradient-to-l from-zinc-50/90 dark:from-[#0a0a0a] to-transparent z-10 pointer-events-none" />

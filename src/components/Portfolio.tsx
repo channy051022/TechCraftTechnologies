@@ -30,14 +30,14 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="work" className="py-32 bg-zinc-50 dark:bg-neutral-950 border-t border-zinc-200 dark:border-white/5 transition-colors duration-300">
+    <section id="work" className="py-16 md:py-20 bg-zinc-50 dark:bg-neutral-950 border-t border-zinc-200 dark:border-white/5 transition-colors duration-300">
       <div className="container mx-auto px-6 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-6"
         >
           <div>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-950 dark:text-white mb-4">
@@ -56,7 +56,7 @@ export default function Portfolio() {
           </Link>
         </motion.div>
 
-        <div className="space-y-12 md:space-y-24">
+        <div className="space-y-10 md:space-y-16">
           {projects.map((project, index) => (
             <motion.div
               key={index}

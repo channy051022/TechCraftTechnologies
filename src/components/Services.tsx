@@ -45,14 +45,14 @@ const cardVariants = {
 
 export default function Services() {
   return (
-    <section id="services" className="py-32 relative">
+    <section id="services" className="py-16 md:py-20 relative">
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 md:mb-24"
+          className="mb-10 md:mb-14"
         >
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
             Everything you need to <br className="hidden md:block" />
