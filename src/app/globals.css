@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-neutral-800: var(--neutral-800);
+  --color-neutral-900: var(--neutral-900);
+  --color-primary: #0070f3;
+  --color-primary-light: #3291ff;
+  --color-violet: #7928ca;
+  --font-sans: var(--font-inter);
+}
+
+:root {
+  --background: #FAFAFA;
+  --foreground: #09090B;
+  --neutral-800: #e4e4e7; /* zinc-200 */
+  --neutral-900: #f4f4f5; /* zinc-100 */
+}
+
+.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+  --neutral-800: #1a1a1a;
+  --neutral-900: #0a0a0a;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8; /* zinc-300 */
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #333;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa; /* zinc-400 */
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Utility classes for subtle effects */
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  .dark .glass {
+    background: rgba(10, 10, 10, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-card {
+    background: #FFFFFF;
+    backdrop-filter: blur(10px);
+    border: 1px solid #e4e4e7;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+  .dark .glass-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #3291ff, #7928ca);
+  }
+}
+
+::selection {
+  background: rgba(50, 145, 255, 0.3);
+  color: #000;
+}
+.dark ::selection {
+  color: #fff;
+}

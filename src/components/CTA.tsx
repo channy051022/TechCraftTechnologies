@@ -1,0 +1,68 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight } from "lucide-react";
+import Link from "next/link";
+
+export default function CTA() {
+  return (
+    <section id="contact" className="relative py-40 overflow-hidden bg-zinc-950 dark:bg-black transition-colors duration-300">
+      {/* Dramatic Animated Background (Maintained dark even in light mode) */}
+      <div className="absolute inset-0 z-0">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+            rotate: [0, 90, 0]
+          }}
+          transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/30 to-transparent blur-[120px] rounded-full mix-blend-screen"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.2, 0.4, 0.2],
+            rotate: [0, -90, 0]
+          }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-violet/20 to-transparent blur-[120px] rounded-full mix-blend-screen"
+        />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8">
+            Have an idea worth building?
+          </h2>
+          <p className="text-xl md:text-2xl text-zinc-300 font-light mb-12 max-w-2xl mx-auto">
+            Let's turn it into something people can use, love, and remember.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link
+              href="mailto:hello@techcrafttechnologies.com"
+              className="group flex items-center gap-2 px-10 py-5 rounded-full bg-white text-zinc-950 font-semibold text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_40px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)]"
+            >
+              Start a Conversation
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link
+              href="#work"
+              className="group flex items-center gap-2 px-10 py-5 rounded-full bg-white/5 border border-white/20 text-white font-semibold text-lg hover:bg-white/10 transition-colors"
+            >
+              View Our Work
+              <ChevronRight className="w-6 h-6 text-zinc-400 group-hover:translate-x-1 group-hover:text-white transition-all" />
+            </Link>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
