@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import PageLoader from "@/components/PageLoader";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,12 +49,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden selection:bg-primary-light/30 selection:text-white"
+        className="min-h-screen flex flex-col bg-background text-foreground overflow-x-clip selection:bg-primary-light/30 selection:text-white"
         suppressHydrationWarning
       >
         <ThemeProvider>
           <PageLoader />
-          {children}
+          <SmoothScroll>{children}</SmoothScroll>
         </ThemeProvider>
       </body>
     </html>
