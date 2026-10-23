@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail } from "lucide-react";
-import Link from "next/link";
+import { Mail, Globe, ExternalLink } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -19,42 +18,42 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 );
 
 const team = [
-  {
-    name: "Belly Joe",
-    role: "Co-Founder & Full-Stack Developer",
-    description: "Focused on UI/UX, frontend architecture, and crafting fluid, interactive digital experiences that users love.",
-    // tags: ["Next.js", "TypeScript", "Framer Motion"],
-    image: "/images/Belly%20Joe.png",
-    social: {
-      github: "https://github.com/bJOE2001",
-      linkedin: "https://linkedin.com",
-      email: "mailto:belly@example.com",
-    }
-  },
-    {
-    name: "Christian Faith Mestola",
-    role: "Co-Founder & Full-Stack Developer",
-    description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
-      // tags: ["React", "Node.js", "System Architecture"],
-    image: "/images/Christian%20Faith%20Mestola.png",
-    social: {
-      github: "https://github.com/channy051022",
-      linkedin: "https://linkedin.com",
-      email: "mailto:christianfaihtmestola.github@gmail.com",
-    }
-  },
-  {
-    name: "Wendel S. Sabelo",
-    role: "Co-Founder & Full-Stack Developer",
-    description: "Expert in designing secure APIs, optimizing databases, and deploying resilient cloud infrastructure.",
-    // tags: ["PostgreSQL", "Go", "AWS"],
-    image: "/images/wendel.png",
-    social: {
-      github: "https://github.com/Wendellynizer",
-      linkedin: "https://linkedin.com",
-      email: "mailto:wendel@example.com",
-    }
+ {
+  name: "Belly Joe",
+  role: "Co-Founder & Full-Stack Developer",
+  description: "Develops end-to-end web applications, combining modern frontend technologies, robust backend systems, and efficient database solutions to build reliable digital products.",
+  image: "/images/Belly%20Joe.png",
+  social: {
+    portfolio: "https://www.bellyjoe.dev/",
+    github: "https://github.com/bJOE2001",
+    linkedin: "https://www.linkedin.com/in/bellyjoedev/",
+    email: "mailto:belly@example.com",
   }
+},
+{
+  name: "Christian Faith Mestola",
+  role: "Co-Founder, Frontend & Full-Stack Developer",
+  description: "Specializes in crafting modern, responsive user interfaces while building complete web applications with integrated backend services, APIs, and database systems.",
+  image: "/images/Christian%20Faith%20Mestola.png",
+  social: {
+    portfolio: "https://christianfaithmestola.dev/",
+    github: "https://github.com/channy051022",
+    linkedin: "https://linkedin.com",
+    email: "mailto:christianfaihtmestola.github@gmail.com",
+  }
+},
+{
+  name: "Wendel S. Sabelo",
+  role: "Co-Founder & Full-Stack Developer",
+  description: "Builds scalable web applications from frontend to backend, integrating secure APIs, database management, and reliable system functionality to deliver practical software solutions.",
+  image: "/images/wendel.png",
+  social: {
+    portfolio: "https://github.com/Wendellynizer",
+    github: "https://github.com/Wendellynizer",
+    linkedin: "https://www.linkedin.com/in/wendel-sabelo/",
+    email: "mailto:wendel@example.com",
+  }
+}
 ];
 
 
@@ -128,41 +127,53 @@ export default function Team() {
                   {member.description}
                 </p>
 
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 mb-6 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {/* {member.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2.5 py-1 text-xs font-medium text-zinc-200 bg-white/10 rounded-md border border-white/15 backdrop-blur-sm"
+                {/* Portfolio & Social Media Links */}
+                <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/15 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
+                  {/* Portfolio Link Button */}
+                  {member.social.portfolio ? (
+                    <a
+                      href={member.social.portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${member.name}'s portfolio`}
+                      className="group/btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all hover:scale-105 active:scale-95 shadow-sm"
                     >
-                      {tag}
-                    </span>
-                  ))} */}
-                </div>
+                      <Globe className="w-3.5 h-3.5 text-primary-light" />
+                      <span>Portfolio</span>
+                      <ExternalLink className="w-3 h-3 text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
+                    </a>
+                  ) : (
+                    <div />
+                  )}
 
-                {/* Social Media Links */}
-                <div className="flex items-center gap-4 pt-4 border-t border-white/15 transition-all duration-500 delay-200 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  <Link
-                    href={member.social.github}
-                    aria-label={`${member.name}'s GitHub`}
-                    className="text-zinc-300 hover:text-white transition-colors p-1"
-                  >
-                    <GithubIcon className="w-5 h-5" />
-                  </Link>
-                  <Link
-                    href={member.social.linkedin}
-                    aria-label={`${member.name}'s LinkedIn`}
-                    className="text-zinc-300 hover:text-[#0A66C2] transition-colors p-1"
-                  >
-                    <LinkedinIcon className="w-5 h-5" />
-                  </Link>
-                  <Link
-                    href={member.social.email}
-                    aria-label={`Email ${member.name}`}
-                    className="text-zinc-300 hover:text-primary-light transition-colors p-1"
-                  >
-                    <Mail className="w-5 h-5" />
-                  </Link>
+                  {/* Social Icons */}
+                  <div className="flex items-center gap-3">
+                    <a
+                      href={member.social.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name}'s GitHub`}
+                      className="text-zinc-300 hover:text-white transition-colors p-1"
+                    >
+                      <GithubIcon className="w-5 h-5" />
+                    </a>
+                    <a
+                      href={member.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${member.name}'s LinkedIn`}
+                      className="text-zinc-300 hover:text-[#0A66C2] transition-colors p-1"
+                    >
+                      <LinkedinIcon className="w-5 h-5" />
+                    </a>
+                    <a
+                      href={member.social.email}
+                      aria-label={`Email ${member.name}`}
+                      className="text-zinc-300 hover:text-primary-light transition-colors p-1"
+                    >
+                      <Mail className="w-5 h-5" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>

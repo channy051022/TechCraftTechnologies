@@ -1,22 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 const footerLinks = {
   Company: [
-    { name: "About", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Work", href: "#work" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/#services" },
+    // { name: "Work", href: "/#work" },
+    { name: "Contact", href: "viber://chat?number=%2B639120509416" },
   ],
-  Resources: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
-  ],
+  // Resources: [
+  //   { name: "Privacy Policy", href: "/privacy" },
+  //   { name: "Terms of Service", href: "/terms" },
+  // ],
   Social: [
-    { name: "Facebook Page", href: "https://facebook.com/TechCraftTechnologies" },
+    { name: "Facebook Page", href: "https://www.facebook.com/profile.php?id=100071878242948" },
     { name: "GitHub", href: "https://github.com/TechCraftTechnologies" },
-    { name: "X", href: "https://x.com/TechCraftTechnologies" },
+    // { name: "X", href: "https://x.com/TechCraftTechnologies" },
   ],
 };
 
@@ -43,7 +45,16 @@ export default function Footer() {
           
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center mb-6 group">
+            <Link
+              href="/"
+              onClick={(e) => {
+                if (typeof window !== "undefined" && window.location.pathname === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className="inline-flex items-center mb-6 group cursor-pointer"
+            >
               <Image
                 src="/techcraftlogo-light.png"
                 alt="TechCraft Technologies"
@@ -91,11 +102,26 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-zinc-500">
-            © {new Date().getFullYear()} TechCraft Technologies. All rights reserved.
+        {/* Bottom Bar: Copyright aligned with Legal & Item Navigation */}
+        <div className="pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
+          <p className="text-zinc-600 dark:text-zinc-400 font-normal">
+            © 2026 TechCraft Technologies. All rights reserved.
           </p>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 sm:gap-6 text-xs sm:text-sm font-medium">
+            <Link
+              href="/privacy"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-zinc-300 dark:text-zinc-700 select-none">•</span>
+            <Link
+              href="/terms"
+              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
+            >
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

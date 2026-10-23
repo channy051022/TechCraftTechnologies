@@ -27,7 +27,7 @@ export default function CTA() {
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-violet/20 to-transparent blur-[120px] rounded-full mix-blend-screen"
         />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 mix-blend-overlay" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -46,13 +46,14 @@ export default function CTA() {
           </p>
 
           <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-5 flex-wrap sm:flex-nowrap">
-            <Link
-              href="mailto:hello@techcrafttechnologies.com"
-              className="group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full bg-white text-zinc-950 font-semibold text-xs sm:text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] whitespace-nowrap"
+            <a
+              href="viber://chat?number=%2B639120509416"
+              className="group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full bg-white text-zinc-950 font-semibold text-xs sm:text-base md:text-lg hover:scale-105 active:scale-95 transition-all shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_60px_rgba(255,255,255,0.3)] whitespace-nowrap cursor-pointer"
             >
               Start a Conversation
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
+            {/* Hidden for now while Portfolio section is hidden
             <Link
               href="#work"
               className="group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded-full bg-white/5 border border-white/20 text-white font-semibold text-xs sm:text-base md:text-lg hover:bg-white/10 transition-colors whitespace-nowrap"
@@ -60,6 +61,7 @@ export default function CTA() {
               View Our Work
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-zinc-400 group-hover:translate-x-1 group-hover:text-white transition-all" />
             </Link>
+            */}
           </div>
         </motion.div>
       </div>

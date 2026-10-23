@@ -136,7 +136,6 @@ export default function Process() {
           className="text-center mb-16 md:mb-20 max-w-2xl mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-5">
-            <Sparkles className="w-3.5 h-3.5 text-primary-light" />
             <span className="text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
               Proven Methodology
             </span>

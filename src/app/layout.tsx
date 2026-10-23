@@ -46,7 +46,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden selection:bg-primary-light/30 selection:text-white">
+      <body
+        className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden selection:bg-primary-light/30 selection:text-white"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           {children}
         </ThemeProvider>

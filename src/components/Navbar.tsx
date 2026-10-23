@@ -9,11 +9,11 @@ import clsx from "clsx";
 import { useTheme } from "@/components/ThemeProvider";
 
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "Services", href: "#services" },
-  { name: "Work", href: "#work" },
-  { name: "Process", href: "#process" },
-  { name: "About", href: "#about" },
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/#services" },
+  // { name: "Work", href: "/#work" },
+  { name: "Process", href: "/#process" },
+  { name: "About", href: "/#about" },
 ];
 
 export default function Navbar() {
@@ -43,7 +43,16 @@ export default function Navbar() {
       <div className="container mx-auto px-6 max-w-7xl">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10 flex items-center group">
+          <Link
+            href="/"
+            onClick={(e) => {
+              if (typeof window !== "undefined" && window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+            className="relative z-10 flex items-center group cursor-pointer"
+          >
             <Image
               src="/techcraftlogo-light.png"
               alt="TechCraft Technologies"
@@ -101,13 +110,13 @@ export default function Navbar() {
                   </AnimatePresence>
                 </button>
               )}
-              <Link
-                href="#contact"
+              <a
+                href="viber://chat?number=%2B639120509416"
                 className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
               >
                 Let's Talk
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
             </div>
           </nav>
 
@@ -174,14 +183,14 @@ export default function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-zinc-200 dark:border-white/10">
-                <Link
-                  href="#contact"
+                <a
+                  href="viber://chat?number=%2B639120509416"
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-foreground text-background font-medium"
                 >
                   Let's Talk
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </a>
               </div>
             </div>
           </motion.div>

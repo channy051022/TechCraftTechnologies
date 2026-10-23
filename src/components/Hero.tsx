@@ -76,13 +76,14 @@ export default function Hero() {
 
             {/* CTAs */}
             <motion.div variants={item} className="flex flex-row items-center gap-2.5 sm:gap-4 w-auto">
-              <Link
-                href="#contact"
-                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs sm:text-sm md:text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-md sm:shadow-lg shadow-zinc-950/10 dark:shadow-none whitespace-nowrap"
+              <a
+                href="viber://chat?number=%2B639120509416"
+                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs sm:text-sm md:text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-md sm:shadow-lg shadow-zinc-950/10 dark:shadow-none whitespace-nowrap cursor-pointer"
               >
                 Start a Project
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+              </a>
+              {/* Hidden for now while Portfolio section is hidden
               <Link
                 href="#work"
                 className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-zinc-900 dark:text-white font-semibold text-xs sm:text-sm md:text-base hover:bg-zinc-50 dark:hover:bg-white/10 transition-all whitespace-nowrap"
@@ -90,6 +91,7 @@ export default function Hero() {
                 Explore Our Work
                 <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-500 dark:text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-900 dark:group-hover:text-white transition-all" />
               </Link>
+              */}
             </motion.div>
           </motion.div>
 
