@@ -1,7 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Globe, ExternalLink } from "lucide-react";
+import { Mail, Globe, ExternalLink, ChevronDown } from "lucide-react";
+import clsx from "clsx";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
@@ -19,15 +21,15 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 const team = [
  {
-  name: "Belly Joe",
+  name: "Belly Joe B. Basadre",
   role: "Co-Founder & Full-Stack Developer",
-  description: "Develops end-to-end web applications, combining modern frontend technologies, robust backend systems, and efficient database solutions to build reliable digital products.",
+  description: "Full-Stack Web & Mobile Developer with production experience building scalable web platforms, government enterprise systems, and AI-powered applications.",
   image: "/images/Belly%20Joe.png",
   social: {
     portfolio: "https://www.bellyjoe.dev/",
     github: "https://github.com/bJOE2001",
     linkedin: "https://www.linkedin.com/in/bellyjoedev/",
-    email: "mailto:belly@example.com",
+    email: "mailto:basadre.bellyjoe@gmail.com",
   }
 },
 {
@@ -56,6 +58,196 @@ const team = [
 }
 ];
 
+
+function TeamCard({
+  member,
+  index,
+}: {
+  member: (typeof team)[number];
+  index: number;
+}) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+      className="group relative h-[480px] sm:h-[520px] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 hover:ring-1 hover:ring-primary/30 transition-all duration-500 focus-within:ring-2 focus-within:ring-primary flex flex-col justify-end"
+    >
+      {/* Full Edge-to-Edge Image with Smooth Zoom */}
+      <motion.div
+        animate={{
+          scale: isExpanded ? 1.03 : 1,
+        }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0 w-full h-full overflow-hidden"
+      >
+        <img
+          src={member.image}
+          alt={member.name}
+          className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.06] group-focus-within:scale-[1.06] motion-reduce:transform-none"
+          loading="lazy"
+        />
+      </motion.div>
+
+      {/* Default Subtle Bottom Gradient for Depth */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-transparent pointer-events-none" />
+
+      {/* Dark Translucent Gradient Overlay for Hover State */}
+      <div
+        className={clsx(
+          "absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/75 to-neutral-950/20 transition-opacity duration-500 pointer-events-none backdrop-blur-[1px]",
+          isExpanded ? "opacity-0" : "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-90"
+        )}
+      />
+
+      {/* Dynamic Deepening Gradient when Expanded (covers only lower portion, keeping face visible) */}
+      <motion.div
+        animate={{
+          opacity: isExpanded ? 1 : 0,
+        }}
+        transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/85 to-transparent pointer-events-none z-10"
+      />
+
+      {/* Information Container - Always pinned to bottom; expands upward only by description height */}
+      <motion.div
+        layout
+        transition={{
+          layout: { duration: 0.45, ease: [0.16, 1, 0.3, 1] },
+        }}
+        className="relative z-20 p-6 sm:p-8 flex flex-col justify-end w-full"
+      >
+        {/* Content Block (Name, Role, Description, See more button) */}
+        <motion.div
+          layout="position"
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className={clsx(
+            "transition-opacity duration-300",
+            isExpanded
+              ? "opacity-100"
+              : "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100"
+          )}
+        >
+          {/* Full Name */}
+          <motion.h3
+            layout="position"
+            className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1"
+          >
+            {member.name}
+          </motion.h3>
+
+          {/* Role / Job Title */}
+          <motion.p
+            layout="position"
+            className="text-primary-light font-medium text-sm sm:text-base mb-3"
+          >
+            {member.role}
+          </motion.p>
+
+          {/* Height-Animated Description Container - Expands only to content height */}
+          <motion.div
+            initial={false}
+            animate={{
+              height: isExpanded ? "auto" : 60,
+            }}
+            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden relative"
+          >
+            <p className="text-zinc-300 text-sm sm:text-[15px] leading-relaxed">
+              {member.description}
+            </p>
+            {/* Subtle Gradient Fade on Bottom line when collapsed */}
+            {!isExpanded && (
+              <div className="absolute inset-x-0 bottom-0 h-6 bg-gradient-to-t from-neutral-950/90 to-transparent pointer-events-none" />
+            )}
+          </motion.div>
+
+          {/* See More / See Less Toggle */}
+          <motion.button
+            layout="position"
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsExpanded(!isExpanded);
+            }}
+            className="inline-flex items-center gap-1.5 mt-2.5 mb-2 text-xs font-semibold text-primary-light hover:text-white transition-colors cursor-pointer group/toggle select-none"
+            aria-expanded={isExpanded}
+          >
+            <span>{isExpanded ? "See less" : "See more"}</span>
+            <motion.span
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.35, ease: "easeInOut" }}
+              className="inline-flex items-center justify-center"
+            >
+              <ChevronDown className="w-3.5 h-3.5 text-primary-light group-hover/toggle:text-white" />
+            </motion.span>
+          </motion.button>
+        </motion.div>
+
+        {/* Portfolio & Social Media Links */}
+        <motion.div
+          layout="position"
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          className={clsx(
+            "flex items-center justify-between gap-3 pt-4 border-t border-white/15 transition-opacity duration-300",
+            isExpanded
+              ? "opacity-100"
+              : "opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100"
+          )}
+        >
+          {/* Portfolio Link Button */}
+          {member.social.portfolio ? (
+            <a
+              href={member.social.portfolio}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${member.name}'s portfolio`}
+              className="group/btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all hover:scale-105 active:scale-95 shadow-sm"
+            >
+              <Globe className="w-3.5 h-3.5 text-primary-light" />
+              <span>Portfolio</span>
+              <ExternalLink className="w-3 h-3 text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
+            </a>
+          ) : (
+            <div />
+          )}
+
+          {/* Social Icons */}
+          <div className="flex items-center gap-3">
+            <a
+              href={member.social.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${member.name}'s GitHub`}
+              className="text-zinc-300 hover:text-white transition-colors p-1"
+            >
+              <GithubIcon className="w-5 h-5" />
+            </a>
+            <a
+              href={member.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${member.name}'s LinkedIn`}
+              className="text-zinc-300 hover:text-[#0A66C2] transition-colors p-1"
+            >
+              <LinkedinIcon className="w-5 h-5" />
+            </a>
+            <a
+              href={member.social.email}
+              aria-label={`Email ${member.name}`}
+              className="text-zinc-300 hover:text-primary-light transition-colors p-1"
+            >
+              <Mail className="w-5 h-5" />
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function Team() {
   return (
@@ -86,97 +278,7 @@ export default function Team() {
         {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 md:mb-14">
           {team.map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="group relative h-[480px] sm:h-[520px] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 hover:ring-1 hover:ring-primary/30 transition-all duration-500 flex flex-col justify-end focus-within:ring-2 focus-within:ring-primary"
-            >
-              {/* Full Edge-to-Edge Image with Smooth Zoom */}
-              <div className="absolute inset-0 w-full h-full overflow-hidden">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover object-center transform scale-100 group-hover:scale-[1.08] group-focus-within:scale-[1.08] transition-transform duration-700 ease-out motion-reduce:transform-none"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Default Subtle Bottom Gradient for Depth */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none transition-opacity duration-500" />
-
-              {/* Dark Translucent Gradient Overlay for Hover State */}
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/75 to-neutral-950/30 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-90 transition-opacity duration-500 pointer-events-none backdrop-blur-[2px]" />
-
-              {/* Information Revealed Near Bottom */}
-              <div className="relative z-10 p-6 sm:p-8 flex flex-col justify-end w-full">
-                {/* Full Name */}
-                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {member.name}
-                </h3>
-
-                {/* Role / Job Title */}
-                <p className="text-primary-light font-medium text-sm sm:text-base mb-3 transition-all duration-500 delay-75 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {member.role}
-                </p>
-
-                {/* Short Description */}
-                <p className="text-zinc-300 text-sm leading-relaxed mb-4 line-clamp-3 transition-all duration-500 delay-100 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {member.description}
-                </p>
-
-                {/* Portfolio & Social Media Links */}
-                <div className="flex items-center justify-between gap-3 pt-4 border-t border-white/15 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {/* Portfolio Link Button */}
-                  {member.social.portfolio ? (
-                    <a
-                      href={member.social.portfolio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${member.name}'s portfolio`}
-                      className="group/btn inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs font-semibold text-white transition-all hover:scale-105 active:scale-95 shadow-sm"
-                    >
-                      <Globe className="w-3.5 h-3.5 text-primary-light" />
-                      <span>Portfolio</span>
-                      <ExternalLink className="w-3 h-3 text-zinc-400 group-hover/btn:text-white group-hover/btn:translate-x-0.5 transition-all" />
-                    </a>
-                  ) : (
-                    <div />
-                  )}
-
-                  {/* Social Icons */}
-                  <div className="flex items-center gap-3">
-                    <a
-                      href={member.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${member.name}'s GitHub`}
-                      className="text-zinc-300 hover:text-white transition-colors p-1"
-                    >
-                      <GithubIcon className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={member.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${member.name}'s LinkedIn`}
-                      className="text-zinc-300 hover:text-[#0A66C2] transition-colors p-1"
-                    >
-                      <LinkedinIcon className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={member.social.email}
-                      aria-label={`Email ${member.name}`}
-                      className="text-zinc-300 hover:text-primary-light transition-colors p-1"
-                    >
-                      <Mail className="w-5 h-5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <TeamCard key={member.name} member={member} index={index} />
           ))}
         </div>
 
