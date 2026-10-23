@@ -34,13 +34,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   text-rendering: optimizeLegibility;
-  overflow-x: clip;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
-  overflow-x: clip;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }

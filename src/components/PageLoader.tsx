@@ -8,9 +8,10 @@ export default function PageLoader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Lock scrolling while loading screen is visible
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    // Ensure body scroll is never locked
+    if (typeof document !== "undefined") {
+      document.body.style.overflow = "";
+    }
 
     // Allow the logo animation and loading bar to play smoothly
     const timer = setTimeout(() => {
@@ -22,13 +23,11 @@ export default function PageLoader() {
     }, 1300);
 
     return () => {
-      document.body.style.overflow = originalOverflow;
       clearTimeout(timer);
     };
   }, []);
 
   const handleExitComplete = () => {
-    document.body.style.overflow = "";
     if (typeof window !== "undefined") {
       window.dispatchEvent(new CustomEvent("site-loader-complete"));
     }
@@ -45,7 +44,7 @@ export default function PageLoader() {
             scale: 1.02,
             transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
           }}
-          className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#030305] text-white overflow-hidden pointer-events-auto select-none"
+          className={`fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#030305] text-white overflow-hidden select-none ${isLoading ? "pointer-events-auto" : "pointer-events-none"}`}
           aria-label="Loading website"
           role="status"
         >
