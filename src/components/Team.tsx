@@ -276,33 +276,11 @@ export default function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {team.map((member, index) => (
             <TeamCard key={member.name} member={member} index={index} />
           ))}
         </div>
-
-        {/* Founder Story Box */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-[2rem] bg-zinc-50 dark:bg-neutral-900 border border-zinc-200 dark:border-white/5 text-center relative overflow-hidden"
-        >
-          {/* Subtle Inner Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet/5 dark:from-primary/10 dark:to-violet/10 pointer-events-none" />
-          
-          <div className="relative z-10">
-            <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
-              Three developers. One shared vision.
-            </h4>
-            <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light max-w-2xl mx-auto">
-              We believe great software isn't just about writing code. It's about understanding the problem, designing the right solution, and building technology that creates real business value.
-            </p>
-          </div>
-        </motion.div>
-
       </div>
     </section>
   );

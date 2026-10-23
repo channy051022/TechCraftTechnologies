@@ -239,43 +239,43 @@ export default function HeroDashboard() {
           {/* Main Window Wrapper */}
           <div className="w-full rounded-2xl md:rounded-[22px] bg-[#0c0e17] text-white border border-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.08)] overflow-hidden">
             {/* Browser Chrome Header */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#111422] border-b border-white/5 select-none">
+            <div className="flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 bg-[#111422] border-b border-white/5 select-none gap-2">
               {/* Traffic Light Buttons */}
-              <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50 shadow-inner" />
-                <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50 shadow-inner" />
-                <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50 shadow-inner" />
+              <div className="flex items-center gap-1.5 shrink-0">
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]/50 shadow-inner" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]/50 shadow-inner" />
+                <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]/50 shadow-inner" />
               </div>
 
               {/* Dynamic Browser URL bar */}
-              <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-[#08090f] border border-white/5 text-[11px] text-zinc-400 font-mono tracking-tight max-w-[280px] sm:max-w-xs w-full justify-center">
-                <Lock className="w-3 h-3 text-emerald-400" />
-                <span className="text-zinc-500">https://</span>
-                <span className="text-zinc-200 font-medium">techcrafttechnologies.tech</span>
-                <span className="text-primary-light font-semibold">/{activeTab}</span>
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 rounded-md bg-[#08090f] border border-white/5 text-[10px] sm:text-[11px] text-zinc-400 font-mono tracking-tight max-w-[200px] xs:max-w-[240px] sm:max-w-xs w-full justify-center overflow-hidden">
+                <Lock className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-emerald-400 shrink-0" />
+                <span className="text-zinc-500 hidden sm:inline">https://</span>
+                <span className="text-zinc-200 font-medium truncate">techcrafttechnologies.tech</span>
+                <span className="text-primary-light font-semibold shrink-0">/{activeTab}</span>
               </div>
 
               {/* Right Spacer (keeps URL bar centered) */}
-              <div className="w-12 sm:w-16" />
+              <div className="w-8 sm:w-16 hidden xs:block" />
             </div>
 
             {/* Dashboard Body (Sidebar + Dynamic Canvas) */}
-            <div className="flex h-[475px] sm:h-[495px]">
+            <div className="flex h-[450px] sm:h-[480px] md:h-[495px]">
               {/* Left Mini Sidebar */}
-              <div className="w-12 sm:w-14 bg-[#090b12] border-r border-white/5 flex flex-col items-center justify-between py-4 shrink-0 h-full">
+              <div className="w-10 sm:w-14 bg-[#090b12] border-r border-white/5 flex flex-col items-center justify-between py-3 sm:py-4 shrink-0 h-full">
                 {/* Navigation Items (Interactive & Auto-changing) */}
-                <div className="flex flex-col items-center gap-2.5 pt-1">
+                <div className="flex flex-col items-center gap-2 sm:gap-2.5 pt-1">
                     {/* Tab 1: Overview */}
                     <button
                       onClick={() => setActiveTab("overview")}
                       aria-label="Overview"
-                      className={`p-2 rounded-lg transition-all relative group ${
+                      className={`p-1.5 sm:p-2 rounded-lg transition-all relative group ${
                         activeTab === "overview"
                           ? "text-primary-light bg-primary/10"
                           : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                       }`}
                     >
-                      <LayoutDashboard className="w-4 h-4" />
+                      <LayoutDashboard className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       {activeTab === "overview" && (
                         <motion.span
                           layoutId="sidebarActivePill"
@@ -288,13 +288,13 @@ export default function HeroDashboard() {
                     <button
                       onClick={() => setActiveTab("analytics")}
                       aria-label="Analytics"
-                      className={`p-2 rounded-lg transition-all relative group ${
+                      className={`p-1.5 sm:p-2 rounded-lg transition-all relative group ${
                         activeTab === "analytics"
                           ? "text-primary-light bg-primary/10"
                           : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                       }`}
                     >
-                      <BarChart3 className="w-4 h-4" />
+                      <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       {activeTab === "analytics" && (
                         <motion.span
                           layoutId="sidebarActivePill"
@@ -307,13 +307,13 @@ export default function HeroDashboard() {
                     <button
                       onClick={() => setActiveTab("projects")}
                       aria-label="Projects"
-                      className={`p-2 rounded-lg transition-all relative group ${
+                      className={`p-1.5 sm:p-2 rounded-lg transition-all relative group ${
                         activeTab === "projects"
                           ? "text-primary-light bg-primary/10"
                           : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
                       }`}
                     >
-                      <Layers className="w-4 h-4" />
+                      <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       {activeTab === "projects" && (
                         <motion.span
                           layoutId="sidebarActivePill"
@@ -324,24 +324,24 @@ export default function HeroDashboard() {
                   </div>
 
                 {/* Bottom Settings & Status */}
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-2.5 sm:gap-3">
                   <button
                     aria-label="Settings"
-                    className="p-2 text-zinc-500 hover:text-zinc-300 rounded-lg hover:bg-white/5 transition-colors"
+                    className="p-1.5 sm:p-2 text-zinc-500 hover:text-zinc-300 rounded-lg hover:bg-white/5 transition-colors"
                   >
-                    <Settings className="w-4 h-4" />
+                    <Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                   <div className="relative">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-violet to-primary text-[10px] font-bold flex items-center justify-center text-white ring-1 ring-white/20">
+                    <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gradient-to-tr from-violet to-primary text-[9px] sm:text-[10px] font-bold flex items-center justify-center text-white ring-1 ring-white/20">
                       TC
                     </div>
-                    <span className="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-emerald-500 ring-2 ring-[#090b12]" />
+                    <span className="absolute bottom-0 right-0 w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 ring-2 ring-[#090b12]" />
                   </div>
                 </div>
               </div>
 
               {/* Main Dashboard Canvas (Dynamic Content Based on activeTab) */}
-              <div className="flex-1 p-3.5 sm:p-5 flex flex-col overflow-hidden h-full">
+              <div className="flex-1 p-2.5 sm:p-4 md:p-5 flex flex-col overflow-hidden h-full">
                 <AnimatePresence mode="wait">
                   {/* MODULE 1: SYSTEM OVERVIEW */}
                   {activeTab === "overview" && (
@@ -351,106 +351,106 @@ export default function HeroDashboard() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.25 }}
-                      className="flex flex-col justify-between h-full overflow-hidden gap-3"
+                      className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
-                            System Overview
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium flex items-center gap-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="overflow-hidden">
+                          <h4 className="text-xs sm:text-sm font-semibold text-white tracking-tight flex items-center gap-1.5 sm:gap-2">
+                            <span>System Overview</span>
+                            <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-medium flex items-center gap-1 shrink-0">
                               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                               Live Stream
                             </span>
                           </h4>
-                          <p className="text-[11px] text-zinc-400">
+                          <p className="text-[10px] sm:text-[11px] text-zinc-400 truncate">
                             Real-time infrastructure & API telemetry
                           </p>
                         </div>
 
                         {/* Time Range Pills */}
-                        <div className="flex items-center gap-1 bg-[#121624] p-1 rounded-lg border border-white/5 text-[10px] font-medium text-zinc-400">
-                          <span className="px-2 py-0.5 rounded bg-primary/20 text-primary-light font-semibold shadow-sm">
+                        <div className="flex items-center gap-0.5 sm:gap-1 bg-[#121624] p-0.5 sm:p-1 rounded-lg border border-white/5 text-[9px] sm:text-[10px] font-medium text-zinc-400 shrink-0">
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded bg-primary/20 text-primary-light font-semibold shadow-sm">
                             7D
                           </span>
-                          <span className="px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors">
+                          <span className="px-1.5 sm:px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors">
                             30D
                           </span>
-                          <span className="px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors hidden sm:inline">
+                          <span className="px-1.5 sm:px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors hidden sm:inline">
                             ALL
                           </span>
                         </div>
                       </div>
 
                       {/* 3 Metric Cards Row */}
-                      <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 md:gap-3">
                         {/* Card 1: Revenue / Volume */}
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-[10px] text-zinc-400 font-medium">Throughput</span>
-                            <div className="w-5 h-5 rounded-md bg-primary/10 flex items-center justify-center text-primary-light">
-                              <TrendingUp className="w-3 h-3" />
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group overflow-hidden">
+                          <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                            <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Throughput</span>
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-primary/10 flex items-center justify-center text-primary-light shrink-0">
+                              <TrendingUp className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                             </div>
                           </div>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={148.6} prefix="$" suffix="k" decimals={1} />
                           </div>
-                          <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-medium mt-0.5">
-                            <ArrowUpRight className="w-3 h-3" />
+                          <div className="flex items-center gap-0.5 sm:gap-1 text-[8px] sm:text-[10px] text-emerald-400 font-medium mt-0.5">
+                            <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0" />
                             <span>+24.8%</span>
                           </div>
                         </div>
 
                         {/* Card 2: Active Deployments */}
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-[10px] text-zinc-400 font-medium">Requests</span>
-                            <div className="w-5 h-5 rounded-md bg-violet/10 flex items-center justify-center text-violet">
-                              <Zap className="w-3 h-3" />
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group overflow-hidden">
+                          <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                            <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Requests</span>
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-violet/10 flex items-center justify-center text-violet shrink-0">
+                              <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                             </div>
                           </div>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={1.42} suffix="M" decimals={2} />
                           </div>
-                          <div className="flex items-center gap-1 text-[10px] text-emerald-400 font-medium mt-0.5">
-                            <ArrowUpRight className="w-3 h-3" />
+                          <div className="flex items-center gap-0.5 sm:gap-1 text-[8px] sm:text-[10px] text-emerald-400 font-medium mt-0.5">
+                            <ArrowUpRight className="w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0" />
                             <span>+18.4%</span>
                           </div>
                         </div>
 
                         {/* Card 3: System Uptime */}
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group">
-                          <div className="flex items-center justify-between mb-1">
-                            <span className="text-[10px] text-zinc-400 font-medium">Avg Latency</span>
-                            <div className="w-5 h-5 rounded-md bg-cyan-500/10 flex items-center justify-center text-cyan-400">
-                              <Activity className="w-3 h-3" />
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between hover:border-primary/30 transition-all group overflow-hidden">
+                          <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                            <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Latency</span>
+                            <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-md bg-cyan-500/10 flex items-center justify-center text-cyan-400 shrink-0">
+                              <Activity className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                             </div>
                           </div>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={24} suffix="ms" decimals={0} />
                           </div>
-                          <div className="flex items-center gap-1 text-[10px] text-cyan-400 font-medium mt-0.5">
-                            <CheckCircle2 className="w-3 h-3" />
+                          <div className="flex items-center gap-0.5 sm:gap-1 text-[8px] sm:text-[10px] text-cyan-400 font-medium mt-0.5">
+                            <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 shrink-0" />
                             <span>Optimal</span>
                           </div>
                         </div>
                       </div>
 
                       {/* Interactive SVG Live Moving Line Chart */}
-                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#131626]/70 border border-white/5 flex flex-col relative overflow-hidden">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-[11px] font-semibold text-zinc-200">
-                              Traffic & API Performance
+                      <div className="p-2 sm:p-3 sm:p-3.5 rounded-lg sm:rounded-xl bg-[#131626]/70 border border-white/5 flex flex-col relative overflow-hidden">
+                        <div className="flex items-center justify-between mb-1.5 sm:mb-2 gap-1">
+                          <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
+                            <span className="text-[10px] sm:text-[11px] font-semibold text-zinc-200 truncate">
+                              Traffic & API
                             </span>
-                            <span className="text-[9px] px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono flex items-center gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                              Peak: $154.8K
+                            <span className="text-[8px] sm:text-[9px] px-1 sm:px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-mono flex items-center gap-1 shrink-0">
+                              <span className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                              Peak $154.8K
                             </span>
                           </div>
-                          <div className="flex items-center gap-3 text-[10px] text-zinc-400">
+                          <div className="flex items-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] text-zinc-400 shrink-0">
                             <span className="flex items-center gap-1">
-                              <span className="w-2 h-2 rounded-full bg-primary-light" />
+                              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-light" />
                               Live Feed
                             </span>
                             <span className="flex items-center gap-1 hidden sm:flex">
@@ -461,7 +461,7 @@ export default function HeroDashboard() {
                         </div>
 
                         {/* SVG Canvas with Live Morphing Wave */}
-                        <div className="relative w-full h-24 sm:h-28">
+                        <div className="relative w-full h-20 sm:h-24 md:h-28">
                           <svg
                             viewBox="0 0 480 150"
                             preserveAspectRatio="none"
@@ -664,47 +664,47 @@ export default function HeroDashboard() {
                       </div>
 
                       {/* Recent Deployments List */}
-                      <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/60 border border-white/5 flex flex-col gap-1.5">
+                      <div className="p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/60 border border-white/5 flex flex-col gap-1.5 overflow-hidden">
                         <div className="flex items-center justify-between mb-0.5">
-                          <span className="text-[11px] font-semibold text-zinc-300">
+                          <span className="text-[10px] sm:text-[11px] font-semibold text-zinc-300">
                             Recent Deployments
                           </span>
-                          <span className="text-[9px] text-primary-light font-mono">
+                          <span className="text-[8px] sm:text-[9px] text-primary-light font-mono">
                             Auto-sync Active
                           </span>
                         </div>
 
-                        <div className="space-y-1.5">
+                        <div className="space-y-1 sm:space-y-1.5">
                           <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg bg-[#0c0e17]/60 border border-white/5">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                              <div>
-                                <div className="text-xs font-medium text-white leading-tight">
+                            <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                              <div className="overflow-hidden">
+                                <div className="text-[11px] sm:text-xs font-medium text-white leading-tight truncate">
                                   Atlas Cloud Operations
                                 </div>
-                                <div className="text-[9px] text-zinc-400">
+                                <div className="text-[8px] sm:text-[9px] text-zinc-400 truncate">
                                   Production • v2.4.1
                                 </div>
                               </div>
                             </div>
-                            <span className="text-[9px] px-2 py-0.5 rounded-full font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span className="text-[8px] sm:text-[9px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 shrink-0">
                               Live
                             </span>
                           </div>
 
                           <div className="flex items-center justify-between p-1.5 sm:p-2 rounded-lg bg-[#0c0e17]/60 border border-white/5">
-                            <div className="flex items-center gap-2">
-                              <div className="w-2 h-2 rounded-full bg-primary-light" />
-                              <div>
-                                <div className="text-xs font-medium text-white leading-tight">
+                            <div className="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
+                              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-light shrink-0" />
+                              <div className="overflow-hidden">
+                                <div className="text-[11px] sm:text-xs font-medium text-white leading-tight truncate">
                                   Pulse Telemetry Engine
                                 </div>
-                                <div className="text-[9px] text-zinc-400">
+                                <div className="text-[8px] sm:text-[9px] text-zinc-400 truncate">
                                   Edge Cluster • 24ms
                                 </div>
                               </div>
                             </div>
-                            <span className="text-[9px] px-2 py-0.5 rounded-full font-medium bg-primary/10 text-primary-light border border-primary/20">
+                            <span className="text-[8px] sm:text-[9px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium bg-primary/10 text-primary-light border border-primary/20 shrink-0">
                               Active
                             </span>
                           </div>
@@ -721,88 +721,88 @@ export default function HeroDashboard() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.25 }}
-                      className="flex flex-col justify-between h-full overflow-hidden gap-3"
+                      className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
-                            Global Edge Telemetry
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-medium flex items-center gap-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="overflow-hidden">
+                          <h4 className="text-xs sm:text-sm font-semibold text-white tracking-tight flex items-center gap-1.5 sm:gap-2">
+                            <span>Global Edge Telemetry</span>
+                            <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-medium flex items-center gap-1 shrink-0">
                               <Globe className="w-2.5 h-2.5" />
                               6 Regions
                             </span>
                           </h4>
-                          <p className="text-[11px] text-zinc-400">
+                          <p className="text-[10px] sm:text-[11px] text-zinc-400 truncate">
                             Distributed edge cluster response latency
                           </p>
                         </div>
 
-                        <div className="flex items-center gap-1 bg-[#121624] p-1 rounded-lg border border-white/5 text-[10px] font-medium text-zinc-400">
-                          <span className="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold shadow-sm">
+                        <div className="flex items-center gap-0.5 sm:gap-1 bg-[#121624] p-0.5 sm:p-1 rounded-lg border border-white/5 text-[9px] sm:text-[10px] font-medium text-zinc-400 shrink-0">
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-semibold shadow-sm">
                             Realtime
                           </span>
-                          <span className="px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors">
+                          <span className="px-1.5 sm:px-2 py-0.5 hover:text-zinc-200 cursor-pointer transition-colors">
                             24h
                           </span>
                         </div>
                       </div>
 
                       {/* 3 Analytics Metrics */}
-                      <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Active Users</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 md:gap-3">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Active Users</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={8420} decimals={0} />
                           </div>
-                          <div className="text-[10px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            <span>+312 / min</span>
+                          <div className="text-[8px] sm:text-[10px] text-emerald-400 font-medium flex items-center gap-0.5 sm:gap-1 mt-0.5 truncate">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                            <span>+312/min</span>
                           </div>
                         </div>
 
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Cache Hit Rate</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Cache Hits</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={99.4} suffix="%" decimals={1} />
                           </div>
-                          <div className="text-[10px] text-cyan-400 font-medium mt-0.5">
+                          <div className="text-[8px] sm:text-[10px] text-cyan-400 font-medium mt-0.5 truncate">
                             Edge Tier 1
                           </div>
                         </div>
 
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Error Rate</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Error Rate</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             0.002%
                           </div>
-                          <div className="text-[10px] text-emerald-400 font-medium mt-0.5">
+                          <div className="text-[8px] sm:text-[10px] text-emerald-400 font-medium mt-0.5 truncate">
                             Zero Critical
                           </div>
                         </div>
                       </div>
 
                       {/* Regional Edge Latency Spectrum (Animated Live Bars) */}
-                      <div className="p-3 sm:p-3.5 rounded-xl bg-[#131626]/70 border border-white/5 flex flex-col">
-                        <div className="flex items-center justify-between mb-2.5">
-                          <span className="text-[11px] font-semibold text-zinc-200">
-                            Cluster Response Times
+                      <div className="p-2 sm:p-3 sm:p-3.5 rounded-lg sm:rounded-xl bg-[#131626]/70 border border-white/5 flex flex-col">
+                        <div className="flex items-center justify-between mb-1.5 sm:mb-2.5">
+                          <span className="text-[10px] sm:text-[11px] font-semibold text-zinc-200">
+                            Cluster Latency
                           </span>
-                          <span className="text-[9px] font-mono text-zinc-400">
-                            Global Avg: 27ms
+                          <span className="text-[8px] sm:text-[9px] font-mono text-zinc-400">
+                            Avg 27ms
                           </span>
                         </div>
 
                         {/* Animated Region Bars Grid */}
-                        <div className="grid grid-cols-6 gap-2 items-end h-24 pt-2 border-b border-white/5 pb-2">
+                        <div className="grid grid-cols-6 gap-1 sm:gap-2 items-end h-20 sm:h-24 pt-1 sm:pt-2 border-b border-white/5 pb-1.5 sm:pb-2">
                           {edgeNodes.map((node, idx) => {
                             const barHeight = Math.max(30, Math.min(95, 100 - node.latency * 1.6));
                             return (
-                              <div key={node.code} className="flex flex-col items-center gap-1.5 h-full justify-end group">
-                                <span className="text-[9px] font-mono text-zinc-400 group-hover:text-cyan-300 transition-colors">
+                              <div key={node.code} className="flex flex-col items-center gap-1 sm:gap-1.5 h-full justify-end group">
+                                <span className="text-[8px] sm:text-[9px] font-mono text-zinc-400 group-hover:text-cyan-300 transition-colors">
                                   {node.latency}ms
                                 </span>
-                                <div className="w-full max-w-[28px] bg-white/5 rounded-t-md overflow-hidden h-16 flex items-end">
+                                <div className="w-full max-w-[24px] sm:max-w-[28px] bg-white/5 rounded-t-md overflow-hidden h-14 sm:h-16 flex items-end">
                                   <motion.div
                                     initial={{ height: 0 }}
                                     animate={{ height: `${barHeight}%` }}
@@ -810,7 +810,7 @@ export default function HeroDashboard() {
                                     className={`w-full rounded-t-md bg-gradient-to-t ${node.color} opacity-85 group-hover:opacity-100 transition-opacity`}
                                   />
                                 </div>
-                                <span className="text-[9px] font-bold font-mono text-zinc-300">
+                                <span className="text-[8px] sm:text-[9px] font-bold font-mono text-zinc-300">
                                   {node.code}
                                 </span>
                               </div>
@@ -820,22 +820,22 @@ export default function HeroDashboard() {
                       </div>
 
                       {/* Live Event Stream Log */}
-                      <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/60 border border-white/5 flex flex-col gap-1.5 font-mono text-[10px]">
-                        <div className="flex items-center justify-between text-zinc-400 text-[10px] font-medium pb-1 border-b border-white/5">
-                          <span className="flex items-center gap-1.5">
-                            <Terminal className="w-3 h-3 text-cyan-400" />
+                      <div className="p-2 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/60 border border-white/5 flex flex-col gap-1 sm:gap-1.5 font-mono text-[9px] sm:text-[10px]">
+                        <div className="flex items-center justify-between text-zinc-400 text-[8px] sm:text-[10px] font-medium pb-1 border-b border-white/5">
+                          <span className="flex items-center gap-1 sm:gap-1.5">
+                            <Terminal className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-400" />
                             Live Edge Event Stream
                           </span>
                           <span className="text-emerald-400">Connected</span>
                         </div>
-                        <div className="space-y-1 text-zinc-300">
+                        <div className="space-y-0.5 sm:space-y-1 text-zinc-300">
                           <div className="flex items-center justify-between">
-                            <span className="text-zinc-400">GET /api/v2/telemetry</span>
-                            <span className="text-emerald-400 font-semibold">200 OK • 14ms</span>
+                            <span className="text-zinc-400 truncate">GET /api/v2/telemetry</span>
+                            <span className="text-emerald-400 font-semibold shrink-0 ml-1">200 OK • 14ms</span>
                           </div>
                           <div className="flex items-center justify-between">
-                            <span className="text-zinc-400">POST /checkout/session</span>
-                            <span className="text-cyan-400 font-semibold">201 Created • 28ms</span>
+                            <span className="text-zinc-400 truncate">POST /checkout/session</span>
+                            <span className="text-cyan-400 font-semibold shrink-0 ml-1">201 Created • 28ms</span>
                           </div>
                         </div>
                       </div>
@@ -850,58 +850,58 @@ export default function HeroDashboard() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
                       transition={{ duration: 0.25 }}
-                      className="flex flex-col justify-between h-full overflow-hidden gap-3"
+                      className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
-                            Client Project Pipelines
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-violet/10 text-violet border border-violet/20 font-medium flex items-center gap-1">
+                      <div className="flex items-center justify-between gap-2">
+                        <div className="overflow-hidden">
+                          <h4 className="text-xs sm:text-sm font-semibold text-white tracking-tight flex items-center gap-1.5 sm:gap-2">
+                            <span>Client Project Pipelines</span>
+                            <span className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full bg-violet/10 text-violet border border-violet/20 font-medium flex items-center gap-1 shrink-0">
                               <Cpu className="w-2.5 h-2.5" />
                               Sprint 14
                             </span>
                           </h4>
-                          <p className="text-[11px] text-zinc-400">
+                          <p className="text-[10px] sm:text-[11px] text-zinc-400 truncate">
                             Build pipelines, velocity & active deployments
                           </p>
                         </div>
 
-                        <div className="flex items-center gap-1 bg-[#121624] p-1 rounded-lg border border-white/5 text-[10px] font-medium text-zinc-400">
-                          <span className="px-2 py-0.5 rounded bg-violet/20 text-violet font-semibold shadow-sm">
+                        <div className="flex items-center gap-0.5 sm:gap-1 bg-[#121624] p-0.5 sm:p-1 rounded-lg border border-white/5 text-[9px] sm:text-[10px] font-medium text-zinc-400 shrink-0">
+                          <span className="px-1.5 sm:px-2 py-0.5 rounded bg-violet/20 text-violet font-semibold shadow-sm">
                             3 Active
                           </span>
                         </div>
                       </div>
 
                       {/* 3 Project Velocity Metrics */}
-                      <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Sprint Velocity</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                      <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 md:gap-3">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Velocity</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={98.6} suffix="%" decimals={1} />
                           </div>
-                          <div className="text-[10px] text-emerald-400 font-medium mt-0.5">
+                          <div className="text-[8px] sm:text-[10px] text-emerald-400 font-medium mt-0.5 truncate">
                             On Schedule
                           </div>
                         </div>
 
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Test Coverage</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Coverage</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             <AnimatedNumber value={100} suffix="%" decimals={0} />
                           </div>
-                          <div className="text-[10px] text-primary-light font-medium mt-0.5">
+                          <div className="text-[8px] sm:text-[10px] text-primary-light font-medium mt-0.5 truncate">
                             2,410 Passed
                           </div>
                         </div>
 
-                        <div className="p-2.5 sm:p-3 rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between">
-                          <span className="text-[10px] text-zinc-400 font-medium">Deployments</span>
-                          <div className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
+                        <div className="p-1.5 sm:p-2.5 md:p-3 rounded-lg sm:rounded-xl bg-[#131626]/80 border border-white/5 flex flex-col justify-between overflow-hidden">
+                          <span className="text-[9px] sm:text-[10px] text-zinc-400 font-medium truncate">Deploys</span>
+                          <div className="text-xs sm:text-base md:text-lg font-bold text-white tracking-tight">
                             28 / 28
                           </div>
-                          <div className="text-[10px] text-violet font-medium mt-0.5">
+                          <div className="text-[8px] sm:text-[10px] text-violet font-medium mt-0.5 truncate">
                             Zero Downtime
                           </div>
                         </div>
@@ -912,31 +912,31 @@ export default function HeroDashboard() {
                         {clientProjects.map((project, idx) => (
                           <div
                             key={project.name}
-                            className="p-2 sm:p-2.5 rounded-xl bg-[#131626]/70 border border-white/5 hover:border-white/10 transition-colors flex flex-col gap-1.5"
+                            className="p-1.5 sm:p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#131626]/70 border border-white/5 hover:border-white/10 transition-colors flex flex-col gap-1 sm:gap-1.5"
                           >
-                            <div className="flex items-center justify-between">
-                              <div>
-                                <div className="text-xs font-semibold text-white tracking-tight">
+                            <div className="flex items-center justify-between gap-1">
+                              <div className="overflow-hidden">
+                                <div className="text-[11px] sm:text-xs font-semibold text-white tracking-tight truncate">
                                   {project.name}
                                 </div>
-                                <div className="text-[9px] text-zinc-400">
+                                <div className="text-[8px] sm:text-[9px] text-zinc-400 truncate max-w-[150px] xs:max-w-[200px] sm:max-w-none">
                                   {project.stack}
                                 </div>
                               </div>
                               <span
-                                className={`text-[9px] px-2 py-0.5 rounded-full font-medium border ${project.badgeColor}`}
+                                className={`text-[8px] sm:text-[9px] px-1.5 sm:px-2 py-0.5 rounded-full font-medium border shrink-0 ${project.badgeColor}`}
                               >
                                 {project.status}
                               </span>
                             </div>
 
                             {/* Animated Progress Bar */}
-                            <div className="space-y-1">
-                              <div className="flex items-center justify-between text-[9px] font-mono text-zinc-400">
-                                <span>Build Completion</span>
+                            <div className="space-y-0.5 sm:space-y-1">
+                              <div className="flex items-center justify-between text-[8px] sm:text-[9px] font-mono text-zinc-400">
+                                <span>Build Progress</span>
                                 <span className="text-zinc-200 font-bold">{project.progress}%</span>
                               </div>
-                              <div className="w-full h-1.5 rounded-full bg-white/5 overflow-hidden">
+                              <div className="w-full h-1 sm:h-1.5 rounded-full bg-white/5 overflow-hidden">
                                 <motion.div
                                   initial={{ width: 0 }}
                                   animate={{ width: `${project.progress}%` }}

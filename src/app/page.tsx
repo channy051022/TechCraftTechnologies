@@ -7,6 +7,7 @@ import Stats from "@/components/Stats";
 import Process from "@/components/Process";
 import Portfolio from "@/components/Portfolio";
 import Technology from "@/components/Technology";
+import BusinessMindset from "@/components/BusinessMindset";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
@@ -25,6 +26,7 @@ export default function Home() {
       <Process />
       {/* Hidden for now: <Portfolio /> */}
       {/* Hidden for now: <Technology /> */}
+      <BusinessMindset />
       <Team />
       {/* Hidden for now: <Testimonials /> */}
       <About />
