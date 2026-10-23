@@ -135,17 +135,17 @@ export default function Process() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 md:mb-20 max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-5">
-            <span className="text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-4 sm:mb-5">
+            <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
               Proven Methodology
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
             From idea to <span className="text-gradient">impact.</span>
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
             A disciplined, high-velocity engineering process built to turn ambitious concepts
             into reliable market leaders.
           </p>
@@ -242,12 +242,12 @@ export default function Process() {
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className={`w-full md:w-5/12 pl-20 md:pl-0 ${
+                    className={`w-full md:w-5/12 pl-18 sm:pl-20 md:pl-0 ${
                       isEven ? "md:text-left md:mr-auto" : "md:text-left md:ml-auto"
                     }`}
                   >
                     <div
-                      className={`relative p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0c0e17]/85 border transition-all duration-300 backdrop-blur-md overflow-hidden ${
+                      className={`relative p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/85 border transition-all duration-300 backdrop-blur-md overflow-hidden ${
                         isHovered
                           ? "border-primary/50 dark:border-primary/40 -translate-y-1.5 shadow-xl dark:shadow-[0_15px_40px_-10px_rgba(0,112,243,0.25)]"
                           : "border-zinc-200/90 dark:border-white/10 shadow-sm hover:shadow-md"
@@ -259,44 +259,44 @@ export default function Process() {
                       />
 
                       {/* Header Row: Phase Tag + Metric Badge */}
-                      <div className="flex items-center justify-between gap-3 mb-4">
+                      <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4">
                         <div className="flex items-center gap-2">
                           <span
-                            className={`w-7 h-7 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xs shadow-xs shrink-0`}
+                            className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xs shadow-xs shrink-0`}
                           >
-                            <StepIcon className="w-3.5 h-3.5" />
+                            <StepIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                           </span>
-                          <span className="text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
+                          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
                             {step.phase}
                           </span>
                         </div>
 
                         <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold border ${step.badgeColor} shrink-0`}
+                          className={`inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-semibold border ${step.badgeColor} shrink-0`}
                         >
                           {step.metric}
                         </span>
                       </div>
 
                       {/* Title & Subtitle */}
-                      <h3 className="text-2xl font-bold text-foreground tracking-tight mb-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight mb-1">
                         {step.title}
                       </h3>
-                      <p className="text-xs font-semibold text-primary-light uppercase tracking-wider mb-3">
+                      <p className="text-[11px] sm:text-xs font-semibold text-primary-light uppercase tracking-wider mb-2 sm:mb-3">
                         {step.subtitle}
                       </p>
 
                       {/* Description */}
-                      <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-5">
+                      <p className="text-xs sm:text-sm md:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4 sm:mb-5 font-normal">
                         {step.description}
                       </p>
 
                       {/* Key Deliverables Checklist */}
-                      <div className="pt-4 border-t border-zinc-100 dark:border-white/5 space-y-2">
+                      <div className="pt-3.5 sm:pt-4 border-t border-zinc-100 dark:border-white/5 space-y-1.5 sm:space-y-2">
                         {step.deliverables.map((item, dIdx) => (
                           <div
                             key={dIdx}
-                            className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300"
+                            className="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-300"
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                             <span>{item}</span>

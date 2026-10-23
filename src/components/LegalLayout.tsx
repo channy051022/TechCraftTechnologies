@@ -159,14 +159,14 @@ export default function LegalLayout({
           </div>
 
           {/* Editorial Header */}
-          <header className="mb-14 sm:mb-16">
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-foreground mb-3">
+          <header className="mb-10 sm:mb-16">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-3">
               {title}
             </h1>
-            <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-base md:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-2xl">
               {subtitle}
             </p>
-            <div className="mt-5 flex items-center gap-3 text-xs sm:text-sm text-zinc-500">
+            <div className="mt-4 sm:mt-5 flex items-center gap-3 text-xs sm:text-sm text-zinc-500">
               <span>Last updated: {lastUpdated}</span>
               <span className="text-zinc-300 dark:text-zinc-700 select-none">•</span>
               <span>TechCraft Technologies</span>
@@ -238,17 +238,17 @@ export default function LegalLayout({
                     id={section.id}
                     className="py-10 first:pt-0 last:pb-0 scroll-mt-28"
                   >
-                    <div className="flex items-baseline gap-3 mb-4">
-                      <span className="font-mono text-sm font-semibold text-primary-light shrink-0">
+                    <div className="flex items-baseline gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="font-mono text-xs sm:text-sm font-semibold text-primary-light shrink-0">
                         {section.number}.
                       </span>
-                      <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground">
+                      <h2 className="text-lg sm:text-xl md:text-2xl font-bold tracking-tight text-foreground">
                         {section.title.replace(/^\d+\.\s*/, "")}
                       </h2>
                     </div>
 
                     <div className="pl-0 sm:pl-7">
-                      <p className="text-base sm:text-[17px] text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
+                      <p className="text-sm sm:text-base md:text-[17px] text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal">
                         {section.content}
                       </p>
 

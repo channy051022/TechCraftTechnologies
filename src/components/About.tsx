@@ -158,21 +158,21 @@ export default function About() {
             className="lg:col-span-6 flex flex-col justify-center"
           >
             {/* Section Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 w-fit mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 w-fit mb-4 sm:mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse" />
-              <span className="text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
+              <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
                 Our Purpose & Craft
               </span>
             </div>
 
             {/* Core Headline */}
-            <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-foreground mb-6 leading-[1.12]">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-foreground mb-4 sm:mb-6 leading-tight sm:leading-[1.12]">
               Technology should make business feel{" "}
               <span className="text-gradient">simpler.</span>
             </h2>
 
             {/* Narrative Body Copy */}
-            <div className="space-y-4 text-base sm:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-8">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed font-normal mb-6 sm:mb-8">
               <p>
                 TechCraft Technologies exists to help businesses turn ambitious ideas into useful,
                 reliable digital experiences.
@@ -184,18 +184,18 @@ export default function About() {
             </div>
 
             {/* 3 Value Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 border-t border-zinc-200 dark:border-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-5 sm:pt-6 border-t border-zinc-200 dark:border-white/10">
               {commitments.map((item, idx) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={idx} className="flex flex-col gap-2 group">
-                    <div className="w-9 h-9 rounded-xl bg-primary/10 dark:bg-white/5 border border-primary/20 dark:border-white/10 flex items-center justify-center text-primary-light group-hover:scale-105 transition-transform duration-200">
+                  <div key={idx} className="flex flex-col gap-1.5 sm:gap-2 group">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary/10 dark:bg-white/5 border border-primary/20 dark:border-white/10 flex items-center justify-center text-primary-light group-hover:scale-105 transition-transform duration-200">
                       <IconComponent className="w-4 h-4" />
                     </div>
-                    <h4 className="text-sm font-semibold text-foreground tracking-tight">
+                    <h4 className="text-xs sm:text-sm font-semibold text-foreground tracking-tight">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-[11px] sm:text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -214,24 +214,24 @@ export default function About() {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative rounded-3xl bg-white dark:bg-[#0c0e17]/90 border border-zinc-200/90 dark:border-white/10 p-6 sm:p-8 shadow-xl dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-md overflow-hidden">
+            <div className="relative rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/90 border border-zinc-200/90 dark:border-white/10 p-5 sm:p-8 shadow-xl dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-md overflow-hidden">
               {/* Background Ambient Grid Accent */}
               <div className="absolute inset-0 bg-radial from-primary/5 dark:from-primary/10 via-transparent to-transparent pointer-events-none" />
 
               {/* Card Header: Title + Live Indicator */}
-              <div className="flex items-center justify-between pb-6 border-b border-zinc-100 dark:border-white/10 relative z-10">
+              <div className="flex items-center justify-between pb-5 sm:pb-6 border-b border-zinc-100 dark:border-white/10 relative z-10">
                 <div>
-                  <span className="text-[11px] font-semibold text-zinc-400 uppercase tracking-widest block mb-0.5">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-zinc-400 uppercase tracking-widest block mb-0.5">
                     The Delivery Lifecycle
                   </span>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground tracking-tight">
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-foreground tracking-tight">
                     From Concept to Continuous Scale
                   </h3>
                 </div>
               </div>
 
               {/* Interactive Step Navigator Strip */}
-              <div className="relative py-6 z-10">
+              <div className="relative py-4 sm:py-6 z-10">
                 <div className="grid grid-cols-5 gap-1.5 sm:gap-2">
                   {pipelineSteps.map((step, idx) => {
                     const isActive = idx === activeStep;
@@ -263,7 +263,7 @@ export default function About() {
                           {step.step}
                         </span>
                         <span
-                          className={`text-xs font-semibold tracking-tight truncate w-full ${
+                          className={`text-[11px] sm:text-xs font-semibold tracking-tight truncate w-full ${
                             isActive
                               ? "text-zinc-950 dark:text-white"
                               : "text-zinc-600 dark:text-zinc-400"
@@ -294,22 +294,22 @@ export default function About() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3 }}
-                    className="p-5 sm:p-6 rounded-2xl bg-zinc-50 dark:bg-neutral-900/60 border border-zinc-200/80 dark:border-white/10 flex flex-col justify-between"
+                    className="p-4 sm:p-6 rounded-2xl bg-zinc-50 dark:bg-neutral-900/60 border border-zinc-200/80 dark:border-white/10 flex flex-col justify-between"
                   >
                     <div>
                       {/* Top Row: Icon + Phase Title + Metric Pill */}
-                      <div className="flex items-start justify-between gap-4 mb-4">
-                        <div className="flex items-center gap-3">
+                      <div className="flex items-start justify-between gap-3 sm:gap-4 mb-3.5 sm:mb-4">
+                        <div className="flex items-center gap-2.5 sm:gap-3">
                           <div
-                            className={`w-11 h-11 rounded-xl bg-gradient-to-br ${current.gradient} flex items-center justify-center text-white shadow-md shadow-primary/20 shrink-0`}
+                            className={`w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br ${current.gradient} flex items-center justify-center text-white shadow-md shadow-primary/20 shrink-0`}
                           >
-                            <StepIcon className="w-5 h-5" />
+                            <StepIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
                           <div>
-                            <span className="text-[11px] font-semibold text-zinc-400 tracking-wider uppercase block">
+                            <span className="text-[10px] sm:text-[11px] font-semibold text-zinc-400 tracking-wider uppercase block">
                               Phase {current.step}
                             </span>
-                            <h4 className="text-lg sm:text-xl font-bold text-zinc-950 dark:text-white tracking-tight">
+                            <h4 className="text-base sm:text-lg md:text-xl font-bold text-zinc-950 dark:text-white tracking-tight">
                               {current.tagline}
                             </h4>
                           </div>
@@ -323,7 +323,7 @@ export default function About() {
                       </div>
 
                       {/* Description */}
-                      <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4">
+                      <p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed mb-3 sm:mb-4">
                         {current.description}
                       </p>
 
@@ -332,7 +332,7 @@ export default function About() {
                         {current.deliverables.map((item, i) => (
                           <div
                             key={i}
-                            className="flex items-center gap-2 text-xs text-zinc-700 dark:text-zinc-300"
+                            className="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-700 dark:text-zinc-300"
                           >
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                             <span>{item}</span>

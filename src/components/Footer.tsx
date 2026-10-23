@@ -70,7 +70,7 @@ export default function Footer() {
                 className="h-13 sm:h-14 md:h-16 w-auto dark:block hidden transition-opacity group-hover:opacity-85"
               />
             </Link>
-            <p className="text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mb-8 max-w-sm">
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 max-w-sm">
               Build What’s Next.
             </p>
           </div>
@@ -78,17 +78,17 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-sm font-semibold text-zinc-950 dark:text-white tracking-wider uppercase mb-6">
+              <h4 className="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-white tracking-wider uppercase mb-4 sm:mb-6">
                 {category}
               </h4>
-              <ul className="space-y-4">
+              <ul className="space-y-3 sm:space-y-4">
                 {links.map((link) => (
                   <li key={link.name}>
                     <Link
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group"
+                      className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group"
                     >
                       {link.name}
                       {category === "Social" && (
@@ -103,11 +103,11 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright aligned with Legal & Item Navigation */}
-        <div className="pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-          <p className="text-zinc-600 dark:text-zinc-400 font-normal">
+        <div className="pt-6 sm:pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-zinc-500">
+          <p className="text-zinc-600 dark:text-zinc-400 font-normal text-center sm:text-left">
             © 2026 TechCraft Technologies. All rights reserved.
           </p>
-          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-5 sm:gap-6 text-xs sm:text-sm font-medium">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
             <Link
               href="/privacy"
               className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"

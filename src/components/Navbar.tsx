@@ -177,7 +177,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-zinc-600 dark:text-zinc-300 hover:text-foreground transition-colors"
+                  className="text-base sm:text-lg font-medium text-zinc-600 dark:text-zinc-300 hover:text-foreground transition-colors"
                 >
                   {link.name}
                 </Link>
@@ -186,7 +186,7 @@ export default function Navbar() {
                 <a
                   href="viber://chat?number=%2B639120509416"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-foreground text-background font-medium"
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-foreground text-background font-medium text-sm sm:text-base cursor-pointer"
                 >
                   Let's Talk
                   <ArrowRight className="w-4 h-4" />

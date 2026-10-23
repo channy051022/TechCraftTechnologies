@@ -134,7 +134,7 @@ function TeamCard({
           {/* Full Name */}
           <motion.h3
             layout="position"
-            className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1"
+            className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight mb-1"
           >
             {member.name}
           </motion.h3>
@@ -142,7 +142,7 @@ function TeamCard({
           {/* Role / Job Title */}
           <motion.p
             layout="position"
-            className="text-primary-light font-medium text-sm sm:text-base mb-3"
+            className="text-primary-light font-medium text-xs sm:text-sm md:text-base mb-2 sm:mb-3"
           >
             {member.role}
           </motion.p>
@@ -156,7 +156,7 @@ function TeamCard({
             transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden relative"
           >
-            <p className="text-zinc-300 text-sm sm:text-[15px] leading-relaxed">
+            <p className="text-zinc-300 text-xs sm:text-sm md:text-[15px] leading-relaxed">
               {member.description}
             </p>
             {/* Subtle Gradient Fade on Bottom line when collapsed */}
@@ -173,7 +173,7 @@ function TeamCard({
               e.stopPropagation();
               setIsExpanded(!isExpanded);
             }}
-            className="inline-flex items-center gap-1.5 mt-2.5 mb-2 text-xs font-semibold text-primary-light hover:text-white transition-colors cursor-pointer group/toggle select-none"
+            className="inline-flex items-center gap-1.5 mt-2 mb-1.5 sm:mt-2.5 sm:mb-2 text-[11px] sm:text-xs font-semibold text-primary-light hover:text-white transition-colors cursor-pointer group/toggle select-none"
             aria-expanded={isExpanded}
           >
             <span>{isExpanded ? "See less" : "See more"}</span>
@@ -266,17 +266,17 @@ export default function Team() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-14 max-w-3xl mx-auto"
         >
-          <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-xs font-semibold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[11px] sm:text-xs font-semibold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase mb-4 sm:mb-6">
             The People Behind The Product
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground mb-4 sm:mb-6">
             Three minds. One vision. <br className="hidden md:block" />
             <span className="text-zinc-500">Built to move forward.</span>
           </h2>
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 md:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-14">
           {team.map((member, index) => (
             <TeamCard key={member.name} member={member} index={index} />
           ))}
@@ -288,16 +288,16 @@ export default function Team() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto p-10 md:p-12 rounded-[2rem] bg-zinc-50 dark:bg-neutral-900 border border-zinc-200 dark:border-white/5 text-center relative overflow-hidden"
+          className="max-w-4xl mx-auto p-6 sm:p-10 md:p-12 rounded-2xl sm:rounded-[2rem] bg-zinc-50 dark:bg-neutral-900 border border-zinc-200 dark:border-white/5 text-center relative overflow-hidden"
         >
           {/* Subtle Inner Glow */}
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-violet/5 dark:from-primary/10 dark:to-violet/10 pointer-events-none" />
           
           <div className="relative z-10">
-            <h4 className="text-xl md:text-2xl font-semibold text-foreground mb-4">
+            <h4 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-3 sm:mb-4">
               Three developers. One shared vision.
             </h4>
-            <p className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl leading-relaxed font-light max-w-2xl mx-auto">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light max-w-2xl mx-auto">
               We believe great software isn't just about writing code. It's about understanding the problem, designing the right solution, and building technology that creates real business value.
             </p>
           </div>

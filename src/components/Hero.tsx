@@ -52,23 +52,23 @@ export default function Hero() {
             className="lg:col-span-6 xl:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Trust Indicator */}
-            <motion.div variants={item} className="mb-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border border-zinc-200 dark:border-white/5 text-sm font-medium text-zinc-600 dark:text-zinc-300 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse" />
+            <motion.div variants={item} className="mb-5 sm:mb-6">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full glass-card border border-zinc-200 dark:border-white/5 text-xs sm:text-sm font-medium text-zinc-600 dark:text-zinc-300 shadow-sm">
+                <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-primary-light animate-pulse" />
                 Digital Products • Web Platforms • Software Solutions
               </div>
             </motion.div>
 
             {/* Headline */}
-            <motion.div variants={item} className="mb-6">
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.08]">
+            <motion.div variants={item} className="mb-4 sm:mb-6">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.12] sm:leading-[1.08]">
                 Build What’s <span className="text-gradient">Next.</span>
               </h1>
             </motion.div>
 
             {/* Supporting Text */}
-            <motion.div variants={item} className="mb-8 max-w-xl">
-              <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+            <motion.div variants={item} className="mb-6 sm:mb-8 max-w-xl">
+              <p className="text-sm sm:text-base md:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
                 We design and build digital products that help ambitious businesses move
                 faster, work smarter, and grow.
               </p>
@@ -78,7 +78,7 @@ export default function Hero() {
             <motion.div variants={item} className="flex flex-row items-center gap-2.5 sm:gap-4 w-auto">
               <a
                 href="viber://chat?number=%2B639120509416"
-                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs sm:text-sm md:text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-md sm:shadow-lg shadow-zinc-950/10 dark:shadow-none whitespace-nowrap cursor-pointer"
+                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-5 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-semibold text-xs sm:text-sm md:text-base hover:opacity-90 transition-all hover:scale-105 active:scale-95 shadow-md sm:shadow-lg shadow-zinc-950/10 dark:shadow-none whitespace-nowrap cursor-pointer"
               >
                 Start a Project
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
