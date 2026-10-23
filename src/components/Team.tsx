@@ -70,11 +70,11 @@ function TeamCard({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay: index * 0.15 }}
-      className="group relative h-[480px] sm:h-[520px] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 hover:ring-1 hover:ring-primary/30 transition-all duration-500 focus-within:ring-2 focus-within:ring-primary flex flex-col justify-end"
+      viewport={{ once: true, margin: "-40px", amount: 0.15 }}
+      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      className="group relative h-[480px] sm:h-[520px] rounded-[2rem] overflow-hidden border border-zinc-200 dark:border-white/10 shadow-md hover:shadow-2xl hover:border-primary/50 dark:hover:border-primary/50 hover:ring-1 hover:ring-primary/30 transition-[transform,box-shadow,border-color] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] focus-within:ring-2 focus-within:ring-primary flex flex-col justify-end gpu-accelerated"
     >
       {/* Full Edge-to-Edge Image with Smooth Zoom */}
       <motion.div
@@ -87,7 +87,7 @@ function TeamCard({
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-[1.06] group-focus-within:scale-[1.06] motion-reduce:transform-none"
+          className="w-full h-full object-cover object-center transform transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] group-focus-within:scale-[1.05] motion-reduce:transform-none"
           loading="lazy"
         />
       </motion.div>
@@ -262,8 +262,8 @@ export default function Team() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-40px", amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-12 md:mb-14 max-w-3xl mx-auto"
         >
           <span className="inline-block py-1 px-3 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[11px] sm:text-xs font-semibold tracking-widest text-zinc-600 dark:text-zinc-400 uppercase mb-4 sm:mb-6">

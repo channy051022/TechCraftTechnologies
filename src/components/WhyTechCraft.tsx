@@ -65,8 +65,8 @@ export default function WhyTechCraft() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-40px", amount: 0.2 }}
+              transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-[11px] sm:text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-400 uppercase mb-4 sm:mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse" />
@@ -104,11 +104,11 @@ export default function WhyTechCraft() {
                 return (
                   <motion.div
                     key={card.title}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={`group relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-zinc-50/80 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 ${card.border} transition-all duration-300 hover:shadow-xl hover:-translate-y-1 overflow-hidden flex flex-col justify-between`}
+                    viewport={{ once: true, margin: "-40px", amount: 0.15 }}
+                    transition={{ duration: 0.55, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                    className={`group relative p-5 sm:p-7 rounded-2xl sm:rounded-3xl bg-zinc-50/80 dark:bg-white/[0.03] border border-zinc-200/80 dark:border-white/10 ${card.border} transition-[transform,box-shadow,border-color] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.99] overflow-hidden flex flex-col justify-between gpu-accelerated`}
                   >
                     {/* Subtle ambient hover glow */}
                     <div
@@ -119,7 +119,7 @@ export default function WhyTechCraft() {
                       {/* Top Row: Icon + Step Counter */}
                       <div className="flex items-center justify-between mb-4 sm:mb-5">
                         <div
-                          className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl border ${card.badge} transition-transform duration-300 group-hover:scale-110`}
+                          className={`p-2 sm:p-2.5 rounded-xl sm:rounded-2xl border ${card.badge} transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-110`}
                         >
                           <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
@@ -129,7 +129,7 @@ export default function WhyTechCraft() {
                       </div>
 
                       {/* Card Title */}
-                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-2.5 tracking-tight group-hover:text-primary-light transition-colors">
+                      <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-2 sm:mb-2.5 tracking-tight group-hover:text-primary-light transition-colors duration-300">
                         {card.title}
                       </h3>
 

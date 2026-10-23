@@ -26,7 +26,7 @@ export default function Home() {
       <Process />
       {/* Hidden for now: <Portfolio /> */}
       {/* Hidden for now: <Technology /> */}
-      <BusinessMindset />
+      {/* Hidden for now: <BusinessMindset /> */}
       <Team />
       {/* Hidden for now: <Testimonials /> */}
       <About />

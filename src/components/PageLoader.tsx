@@ -14,8 +14,12 @@ export default function PageLoader() {
 
     // Allow the logo animation and loading bar to play smoothly
     const timer = setTimeout(() => {
+      document.documentElement.classList.add("page-ready");
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("site-page-ready"));
+      }
       setIsLoading(false);
-    }, 1500);
+    }, 1300);
 
     return () => {
       document.body.style.overflow = originalOverflow;
@@ -25,6 +29,9 @@ export default function PageLoader() {
 
   const handleExitComplete = () => {
     document.body.style.overflow = "";
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("site-loader-complete"));
+    }
   };
 
   return (
@@ -35,7 +42,8 @@ export default function PageLoader() {
           initial={{ opacity: 1 }}
           exit={{
             opacity: 0,
-            transition: { duration: 0.65, ease: [0.65, 0, 0.35, 1] },
+            scale: 1.02,
+            transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] },
           }}
           className="fixed inset-0 z-[99999] flex flex-col items-center justify-center bg-[#030305] text-white overflow-hidden pointer-events-auto select-none"
           aria-label="Loading website"

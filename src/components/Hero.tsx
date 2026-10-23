@@ -1,9 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
-import Link from "next/link";
-
+import { ArrowRight } from "lucide-react";
 import HeroDashboard from "@/components/HeroDashboard";
 
 const container = {
@@ -11,18 +10,46 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.12,
+      delayChildren: 0.05,
     },
   },
 };
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.75,
+      ease: [0.16, 1, 0.3, 1],
+    },
+  },
 };
 
 export default function Hero() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Check if page loader is already finished
+    if (document.documentElement.classList.contains("page-ready")) {
+      setIsReady(true);
+      return;
+    }
+
+    const handleReady = () => setIsReady(true);
+    window.addEventListener("site-page-ready", handleReady);
+
+    // Fallback timer ensures hero always animates in smoothly
+    const timer = setTimeout(() => setIsReady(true), 1300);
+
+    return () => {
+      window.removeEventListener("site-page-ready", handleReady);
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <section className="relative flex items-center justify-center pt-24 pb-12 lg:pt-28 lg:pb-14 overflow-hidden">
       {/* Background Effects */}
@@ -48,7 +75,7 @@ export default function Hero() {
           <motion.div
             variants={container}
             initial="hidden"
-            animate="show"
+            animate={isReady ? "show" : "hidden"}
             className="lg:col-span-6 xl:col-span-5 text-center lg:text-left flex flex-col items-center lg:items-start"
           >
             {/* Trust Indicator */}
@@ -83,23 +110,14 @@ export default function Hero() {
                 Start a Project
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              {/* Hidden for now while Portfolio section is hidden
-              <Link
-                href="#work"
-                className="justify-center group flex items-center gap-1.5 sm:gap-2 px-4 py-2.5 sm:px-7 sm:py-3.5 md:px-8 md:py-4 rounded-full bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/5 text-zinc-900 dark:text-white font-semibold text-xs sm:text-sm md:text-base hover:bg-zinc-50 dark:hover:bg-white/10 transition-all whitespace-nowrap"
-              >
-                Explore Our Work
-                <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-zinc-500 dark:text-zinc-400 group-hover:translate-x-1 group-hover:text-zinc-900 dark:group-hover:text-white transition-all" />
-              </Link>
-              */}
             </motion.div>
           </motion.div>
 
           {/* Right Column: Fully Animated SaaS Dashboard Mockup */}
           <motion.div
-            initial={{ opacity: 0, x: 40, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, y: 28, scale: 0.97 }}
+            animate={isReady ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 28, scale: 0.97 }}
+            transition={{ duration: 0.85, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 xl:col-span-7 w-full flex items-center justify-center lg:justify-end py-6 lg:py-8"
           >
             <HeroDashboard />

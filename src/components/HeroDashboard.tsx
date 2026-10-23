@@ -279,6 +279,7 @@ export default function HeroDashboard() {
                       {activeTab === "overview" && (
                         <motion.span
                           layoutId="sidebarActivePill"
+                          transition={{ type: "spring", stiffness: 450, damping: 35 }}
                           className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-primary-light"
                         />
                       )}
@@ -298,6 +299,7 @@ export default function HeroDashboard() {
                       {activeTab === "analytics" && (
                         <motion.span
                           layoutId="sidebarActivePill"
+                          transition={{ type: "spring", stiffness: 450, damping: 35 }}
                           className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-primary-light"
                         />
                       )}
@@ -317,6 +319,7 @@ export default function HeroDashboard() {
                       {activeTab === "projects" && (
                         <motion.span
                           layoutId="sidebarActivePill"
+                          transition={{ type: "spring", stiffness: 450, damping: 35 }}
                           className="absolute left-0 top-1.5 bottom-1.5 w-0.5 rounded-full bg-primary-light"
                         />
                       )}
@@ -350,7 +353,7 @@ export default function HeroDashboard() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}
@@ -720,7 +723,7 @@ export default function HeroDashboard() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}
@@ -849,7 +852,7 @@ export default function HeroDashboard() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -8 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                       className="flex flex-col justify-between h-full overflow-hidden gap-2.5 sm:gap-3"
                     >
                       {/* Top Toolbar */}

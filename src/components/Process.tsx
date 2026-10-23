@@ -111,7 +111,7 @@ export default function Process() {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 65%", "end 75%"],
+    offset: ["start 80%", "end 80%"],
   });
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -131,8 +131,8 @@ export default function Process() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-40px", amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-16 md:mb-20 max-w-2xl mx-auto"
         >
           <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-4 sm:mb-5">
@@ -193,12 +193,12 @@ export default function Process() {
                   <motion.div
                     initial={{ scale: 0.7, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.5, delay: 0.15 }}
+                    viewport={{ once: true, margin: "-40px" }}
+                    transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute left-[27px] md:left-1/2 -translate-x-1/2 z-20"
                   >
                     <div
-                      className={`relative w-14 h-14 rounded-2xl bg-white dark:bg-[#0c0e17] border transition-all duration-300 flex items-center justify-center shadow-lg ${
+                      className={`relative w-14 h-14 rounded-2xl bg-white dark:bg-[#0c0e17] border transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center shadow-lg ${
                         isHovered
                           ? "border-primary dark:border-primary-light scale-110 shadow-primary/30"
                           : "border-zinc-200 dark:border-white/15"
@@ -236,18 +236,17 @@ export default function Process() {
                   <motion.div
                     initial={{
                       opacity: 0,
-                      x: isEven ? -40 : 40,
-                      y: 20,
+                      y: 24,
                     }}
-                    whileInView={{ opacity: 1, x: 0, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-40px", amount: 0.15 }}
+                    transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
                     className={`w-full md:w-5/12 pl-18 sm:pl-20 md:pl-0 ${
                       isEven ? "md:text-left md:mr-auto" : "md:text-left md:ml-auto"
                     }`}
                   >
                     <div
-                      className={`relative p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/85 border transition-all duration-300 backdrop-blur-md overflow-hidden ${
+                      className={`relative p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/85 border transition-[transform,box-shadow,border-color] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md overflow-hidden gpu-accelerated active:scale-[0.99] ${
                         isHovered
                           ? "border-primary/50 dark:border-primary/40 -translate-y-1.5 shadow-xl dark:shadow-[0_15px_40px_-10px_rgba(0,112,243,0.25)]"
                           : "border-zinc-200/90 dark:border-white/10 shadow-sm hover:shadow-md"

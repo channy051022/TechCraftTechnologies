@@ -153,8 +153,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, margin: "-40px", amount: 0.2 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6 flex flex-col justify-center"
           >
             {/* Section Badge */}
@@ -189,7 +189,7 @@ export default function About() {
                 const IconComponent = item.icon;
                 return (
                   <div key={idx} className="flex flex-col gap-1.5 sm:gap-2 group">
-                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary/10 dark:bg-white/5 border border-primary/20 dark:border-white/10 flex items-center justify-center text-primary-light group-hover:scale-105 transition-transform duration-200">
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-primary/10 dark:bg-white/5 border border-primary/20 dark:border-white/10 flex items-center justify-center text-primary-light group-hover:scale-105 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
                       <IconComponent className="w-4 h-4" />
                     </div>
                     <h4 className="text-xs sm:text-sm font-semibold text-foreground tracking-tight">
@@ -206,15 +206,15 @@ export default function About() {
 
           {/* Right Column: Interactive 5-Stage "Idea to Growth" Delivery Canvas */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.97 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true, margin: "-40px", amount: 0.15 }}
+            transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-6"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            <div className="relative rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/90 border border-zinc-200/90 dark:border-white/10 p-5 sm:p-8 shadow-xl dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-md overflow-hidden">
+            <div className="relative rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/90 border border-zinc-200/90 dark:border-white/10 p-5 sm:p-8 shadow-xl dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-md overflow-hidden gpu-accelerated">
               {/* Background Ambient Grid Accent */}
               <div className="absolute inset-0 bg-radial from-primary/5 dark:from-primary/10 via-transparent to-transparent pointer-events-none" />
 
@@ -244,7 +244,7 @@ export default function About() {
                           setActiveStep(idx);
                           setIsPaused(true);
                         }}
-                        className={`group relative flex flex-col items-center py-2 px-1 rounded-xl transition-all duration-300 text-center ${
+                        className={`group relative flex flex-col items-center py-2 px-1 rounded-xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] text-center ${
                           isActive
                             ? "bg-primary/10 dark:bg-white/10 ring-1 ring-primary/40 dark:ring-white/20 shadow-sm"
                             : "hover:bg-zinc-100 dark:hover:bg-white/5 opacity-70 hover:opacity-100"
@@ -276,6 +276,7 @@ export default function About() {
                         {isActive && (
                           <motion.div
                             layoutId="pipelineIndicator"
+                            transition={{ type: "spring", stiffness: 450, damping: 35 }}
                             className="absolute -bottom-1 w-6 h-0.5 rounded-full bg-gradient-to-r from-primary to-violet"
                           />
                         )}
@@ -290,10 +291,11 @@ export default function About() {
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={current.id}
-                    initial={{ opacity: 0, y: 12 }}
+                    layout
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -12 }}
-                    transition={{ duration: 0.3 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
                     className="p-4 sm:p-6 rounded-2xl bg-zinc-50 dark:bg-neutral-900/60 border border-zinc-200/80 dark:border-white/10 flex flex-col justify-between"
                   >
                     <div>
