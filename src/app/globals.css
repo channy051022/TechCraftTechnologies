@@ -153,6 +153,68 @@ body {
   }
 }
 
+/* Seamless hardware-accelerated dual-track marquee for LogoCloud */
+@keyframes logoMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.animate-logo-marquee {
+  animation: logoMarquee 38s linear infinite;
+  will-change: transform;
+}
+
+.logo-cloud-track:hover .animate-logo-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-logo-marquee {
+    animation: none !important;
+  }
+}
+
+/* Feathered edge masks for logo cloud marquee */
+.logo-marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .logo-marquee-mask {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 140px,
+      black calc(100% - 140px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 140px,
+      black calc(100% - 140px),
+      transparent 100%
+    );
+  }
+}
+
 ::selection {
   background: rgba(50, 145, 255, 0.3);
   color: #000;

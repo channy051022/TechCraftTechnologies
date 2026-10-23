@@ -18,15 +18,15 @@ export default function Home() {
     <main className="flex min-h-screen flex-col bg-background text-foreground">
       <Navbar />
       <Hero />
-      <LogoCloud />
+      {/* Hidden for now: <LogoCloud /> */}
       <Services />
       <WhyTechCraft />
-      <Stats />
+      {/* Hidden for now: <Stats /> */}
       <Process />
-      <Portfolio />
+      {/* Hidden for now: <Portfolio /> */}
       {/* Hidden for now: <Technology /> */}
       <Team />
-      <Testimonials />
+      {/* Hidden for now: <Testimonials /> */}
       <About />
       <CTA />
       <Footer />

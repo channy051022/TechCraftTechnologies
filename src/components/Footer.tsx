@@ -14,15 +14,30 @@ const footerLinks = {
     { name: "Terms", href: "#" },
   ],
   Social: [
-    { name: "LinkedIn", href: "#" },
-    { name: "GitHub", href: "#" },
-    { name: "X", href: "#" },
+    { name: "Facebook Page", href: "https://facebook.com/TechCraftTechnologies" },
+    { name: "GitHub", href: "https://github.com/TechCraftTechnologies" },
+    { name: "X", href: "https://x.com/TechCraftTechnologies" },
   ],
 };
 
 export default function Footer() {
   return (
     <footer className="bg-zinc-100 dark:bg-background pt-14 md:pt-16 pb-10 border-t border-zinc-200 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
+      {/* Background Watermark TC Monogram Logo */}
+      <div className="absolute -right-8 sm:-right-4 md:right-8 lg:right-16 -bottom-12 sm:-bottom-16 md:-bottom-24 lg:-bottom-28 pointer-events-none select-none z-0">
+        <Image
+          src="/company logo/TC icon logo.png"
+          alt=""
+          width={560}
+          height={560}
+          className="w-[280px] sm:w-[360px] md:w-[460px] lg:w-[540px] h-auto object-contain opacity-[0.045] dark:opacity-[0.06] dark:brightness-125 transition-opacity"
+          priority
+        />
+      </div>
+
+      {/* Subtle ambient lighting behind watermark */}
+      <div className="absolute right-0 bottom-0 w-96 h-96 bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 mb-12 md:mb-14">
           
@@ -60,6 +75,8 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group"
                     >
                       {link.name}
@@ -79,11 +96,6 @@ export default function Footer() {
           <p className="text-sm text-zinc-500">
             © {new Date().getFullYear()} TechCraft Technologies. All rights reserved.
           </p>
-          <div className="flex items-center gap-2 text-sm text-zinc-500">
-            <span>Designed with</span>
-            <span className="text-red-500 animate-pulse">♥</span>
-            <span>for the future.</span>
-          </div>
         </div>
       </div>
     </footer>

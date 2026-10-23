@@ -23,11 +23,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: "/company logo/TC icon logo.png", type: "image/png" },
       { url: "/favicon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
+    shortcut: "/company logo/TC icon logo.png",
+    apple: "/company logo/TC icon logo.png",
   },
 };
 
@@ -38,6 +39,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased scroll-smooth`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("theme");var d=t==="dark"||((!t||t==="system")&&window.matchMedia("(prefers-color-scheme: dark)").matches);if(d){document.documentElement.classList.add("dark")}else{document.documentElement.classList.remove("dark")}}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden selection:bg-primary-light/30 selection:text-white">
         <ThemeProvider>
           {children}

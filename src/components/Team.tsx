@@ -23,10 +23,10 @@ const team = [
     name: "Christian Faith Mestola",
     role: "Co-Founder & Full-Stack Developer",
     description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
-    tags: ["React", "Node.js", "System Architecture"],
+      // tags: ["React", "Node.js", "System Architecture"],
     image: "/images/Christian%20Faith%20Mestola.png",
     social: {
-      github: "https://github.com",
+      github: "https://github.com/channy051022",
       linkedin: "https://linkedin.com",
       email: "mailto:christianfaihtmestola.github@gmail.com",
     }
@@ -35,10 +35,10 @@ const team = [
     name: "Belly Joe",
     role: "Co-Founder & Full-Stack Developer",
     description: "Focused on UI/UX, frontend architecture, and crafting fluid, interactive digital experiences that users love.",
-    tags: ["Next.js", "TypeScript", "Framer Motion"],
+    // tags: ["Next.js", "TypeScript", "Framer Motion"],
     image: "/images/Belly%20Joe.png",
     social: {
-      github: "https://github.com",
+      github: "https://github.com/bJOE2001",
       linkedin: "https://linkedin.com",
       email: "mailto:belly@example.com",
     }
@@ -47,10 +47,10 @@ const team = [
     name: "Wendel S. Sabelo",
     role: "Co-Founder & Full-Stack Developer",
     description: "Expert in designing secure APIs, optimizing databases, and deploying resilient cloud infrastructure.",
-    tags: ["PostgreSQL", "Go", "AWS"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400&h=400",
+    // tags: ["PostgreSQL", "Go", "AWS"],
+    image: "/images/wendel.png",
     social: {
-      github: "https://github.com",
+      github: "https://github.com/Wendellynizer",
       linkedin: "https://linkedin.com",
       email: "mailto:wendel@example.com",
     }
@@ -130,14 +130,14 @@ export default function Team() {
 
                 {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-6 transition-all duration-500 delay-150 transform translate-y-4 group-hover:translate-y-0 group-focus-within:translate-y-0 max-md:translate-y-0 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 max-md:opacity-100 motion-reduce:transform-none motion-reduce:opacity-100">
-                  {member.tags.map((tag) => (
+                  {/* {member.tags.map((tag) => (
                     <span
                       key={tag}
                       className="px-2.5 py-1 text-xs font-medium text-zinc-200 bg-white/10 rounded-md border border-white/15 backdrop-blur-sm"
                     >
                       {tag}
                     </span>
-                  ))}
+                  ))} */}
                 </div>
 
                 {/* Social Media Links */}
