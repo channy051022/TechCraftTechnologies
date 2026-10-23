@@ -20,18 +20,6 @@ const LinkedinIcon = ({ className }: { className?: string }) => (
 
 const team = [
   {
-    name: "Christian Faith Mestola",
-    role: "Co-Founder & Full-Stack Developer",
-    description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
-      // tags: ["React", "Node.js", "System Architecture"],
-    image: "/images/Christian%20Faith%20Mestola.png",
-    social: {
-      github: "https://github.com/channy051022",
-      linkedin: "https://linkedin.com",
-      email: "mailto:christianfaihtmestola.github@gmail.com",
-    }
-  },
-  {
     name: "Belly Joe",
     role: "Co-Founder & Full-Stack Developer",
     description: "Focused on UI/UX, frontend architecture, and crafting fluid, interactive digital experiences that users love.",
@@ -41,6 +29,18 @@ const team = [
       github: "https://github.com/bJOE2001",
       linkedin: "https://linkedin.com",
       email: "mailto:belly@example.com",
+    }
+  },
+    {
+    name: "Christian Faith Mestola",
+    role: "Co-Founder & Full-Stack Developer",
+    description: "Christian specializes in building scalable web applications, robust APIs, and comprehensive system architecture.",
+      // tags: ["React", "Node.js", "System Architecture"],
+    image: "/images/Christian%20Faith%20Mestola.png",
+    social: {
+      github: "https://github.com/channy051022",
+      linkedin: "https://linkedin.com",
+      email: "mailto:christianfaihtmestola.github@gmail.com",
     }
   },
   {
