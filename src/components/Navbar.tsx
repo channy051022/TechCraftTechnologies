@@ -14,6 +14,7 @@ const navLinks = [
   // { name: "Work", href: "/#work" },
   { name: "Process", href: "/#process" },
   { name: "About", href: "/#about" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -30,6 +31,22 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        e.preventDefault();
+        contactSection.scrollIntoView({ behavior: "smooth" });
+        const fullNameInput = document.getElementById("fullName") as HTMLInputElement | null;
+        if (fullNameInput) {
+          setTimeout(() => {
+            fullNameInput.focus({ preventScroll: true });
+          }, 650);
+        }
+      }
+    }
+  };
 
   return (
     <header
@@ -78,6 +95,11 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => {
+                    if (link.href === "/#contact") {
+                      handleScrollToContact(e);
+                    }
+                  }}
                   className="text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors relative group"
                 >
                   {link.name}
@@ -110,13 +132,14 @@ export default function Navbar() {
                   </AnimatePresence>
                 </button>
               )}
-              <a
-                href="viber://chat?number=%2B639120509416"
-                className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              <Link
+                href="/#contact"
+                onClick={handleScrollToContact}
+                className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 active:scale-95 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 cursor-pointer shadow-sm"
               >
-                Let's Talk
+                Start a Project
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </nav>
 
@@ -207,7 +230,12 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileMenuOpen(false);
+                      if (link.href === "/#contact") {
+                        handleScrollToContact(e);
+                      }
+                    }}
                     className="block py-2 text-base sm:text-lg font-medium text-zinc-600 dark:text-zinc-300 hover:text-foreground active:text-primary-light transition-colors"
                   >
                     {link.name}
@@ -225,14 +253,17 @@ export default function Navbar() {
                 }}
                 className="pt-3 border-t border-zinc-200 dark:border-white/10"
               >
-                <a
-                  href="viber://chat?number=%2B639120509416"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                <Link
+                  href="/#contact"
+                  onClick={(e) => {
+                    setIsMobileMenuOpen(false);
+                    handleScrollToContact(e);
+                  }}
                   className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-foreground text-background font-semibold text-sm sm:text-base cursor-pointer hover:opacity-90 active:scale-[0.98] transition-all shadow-md"
                 >
-                  Let's Talk
+                  Start a Project
                   <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>

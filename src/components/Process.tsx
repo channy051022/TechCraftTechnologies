@@ -67,10 +67,10 @@ export default function Process() {
           {/* Eyebrow */}
           <div className="flex items-center gap-2 mb-4 sm:mb-5">
             <span
-              className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+              className="w-1.5 h-1.5 rounded-full bg-[#102944] dark:bg-sky-400"
               aria-hidden="true"
             />
-            <span className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.2em] text-emerald-600 dark:text-emerald-400 uppercase">
+            <span className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.2em] text-[#102944] dark:text-sky-400 uppercase">
               OUR APPROACH
             </span>
           </div>
@@ -115,7 +115,7 @@ export default function Process() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 style={{ originX: 0 }}
-                className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-teal-300 opacity-80"
+                className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#102944] to-[#1e4e7e] dark:from-sky-400 dark:to-blue-500 opacity-90"
               />
 
               {/* Stage Meta: Number and Status Pip */}
@@ -125,16 +125,16 @@ export default function Process() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: (index % 3) * 0.1 + 0.2 }}
-                  className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+                  className="w-1.5 h-1.5 rounded-full bg-[#102944] dark:bg-sky-400"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-emerald-600 dark:text-emerald-400">
+                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[#102944] dark:text-sky-400">
                   {stage.num}
                 </span>
               </div>
 
               {/* Stage Heading */}
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3 transition-colors duration-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3 transition-colors duration-200 group-hover:text-[#102944] dark:group-hover:text-sky-400">
                 {stage.title}
               </h3>
 

@@ -23,7 +23,7 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-zinc-100 dark:bg-background pt-14 md:pt-16 pb-10 border-t border-zinc-200 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
+    <footer className="bg-[#102944] dark:bg-background pt-14 md:pt-16 pb-10 border-t border-white/10 dark:border-white/10 relative overflow-hidden transition-colors duration-300">
       {/* Background Watermark TC Monogram Logo */}
       <div className="absolute -right-8 sm:-right-4 md:right-8 lg:right-16 -bottom-12 sm:-bottom-16 md:-bottom-24 lg:-bottom-28 pointer-events-none select-none z-0">
         <Image
@@ -31,13 +31,13 @@ export default function Footer() {
           alt=""
           width={560}
           height={560}
-          className="w-[280px] sm:w-[360px] md:w-[460px] lg:w-[540px] h-auto object-contain opacity-[0.045] dark:opacity-[0.06] dark:brightness-125 transition-opacity"
+          className="w-[280px] sm:w-[360px] md:w-[460px] lg:w-[540px] h-auto object-contain opacity-[0.07] dark:opacity-[0.06] brightness-125 transition-opacity"
           priority
         />
       </div>
 
       {/* Subtle ambient lighting behind watermark */}
-      <div className="absolute right-0 bottom-0 w-96 h-96 bg-primary/5 dark:bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <div className="absolute right-0 bottom-0 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-12 mb-12 md:mb-14">
@@ -54,22 +54,16 @@ export default function Footer() {
               }}
               className="inline-flex items-center mb-6 group cursor-pointer"
             >
-              <Image
-                src="/techcraftlogo-light.png"
-                alt="TechCraft Technologies"
-                width={260}
-                height={116}
-                className="h-13 sm:h-14 md:h-16 w-auto dark:hidden block transition-opacity group-hover:opacity-85"
-              />
+              {/* White Logo displays with high contrast on both #102944 (light mode) and dark background */}
               <Image
                 src="/techcraftlogo.png"
                 alt="TechCraft Technologies"
                 width={260}
                 height={116}
-                className="h-13 sm:h-14 md:h-16 w-auto dark:block hidden transition-opacity group-hover:opacity-85"
+                className="h-13 sm:h-14 md:h-16 w-auto block transition-opacity group-hover:opacity-85"
               />
             </Link>
-            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-600 dark:text-zinc-400 mb-6 sm:mb-8 max-w-sm">
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-zinc-300 dark:text-zinc-400 mb-6 sm:mb-8 max-w-sm">
               Build What’s Next.
             </p>
           </div>
@@ -77,7 +71,7 @@ export default function Footer() {
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-xs sm:text-sm font-semibold text-zinc-950 dark:text-white tracking-wider uppercase mb-4 sm:mb-6">
+              <h4 className="text-xs sm:text-sm font-semibold text-white tracking-wider uppercase mb-4 sm:mb-6">
                 {category}
               </h4>
               <ul className="space-y-3 sm:space-y-4">
@@ -87,7 +81,7 @@ export default function Footer() {
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group break-all sm:break-normal"
+                      className="text-xs sm:text-sm text-zinc-300 dark:text-zinc-400 hover:text-white dark:hover:text-white transition-colors inline-flex items-center gap-1 group break-all sm:break-normal"
                     >
                       <span>{link.name}</span>
                       {(category === "Social" || category === "Contact") && (
@@ -102,21 +96,21 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar: Copyright aligned with Legal & Item Navigation */}
-        <div className="pt-6 sm:pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-zinc-500">
-          <p className="text-zinc-600 dark:text-zinc-400 font-normal text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs sm:text-sm text-zinc-400">
+          <p className="text-zinc-400 font-normal text-center sm:text-left">
             © 2026 TechCraft Technologies. All rights reserved.
           </p>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-4 sm:gap-6 text-xs sm:text-sm font-medium">
             <Link
               href="/privacy"
-              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
+              className="text-zinc-400 hover:text-white transition-colors"
             >
               Privacy Policy
             </Link>
-            <span className="text-zinc-300 dark:text-zinc-700 select-none">•</span>
+            <span className="text-zinc-500 select-none">•</span>
             <Link
               href="/terms"
-              className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors"
+              className="text-zinc-400 hover:text-white transition-colors"
             >
               Terms of Service
             </Link>
