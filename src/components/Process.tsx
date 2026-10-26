@@ -64,20 +64,17 @@ export default function Process() {
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="mb-16 sm:mb-20 md:mb-24 max-w-3xl"
         >
-          {/* Eyebrow */}
-          <div className="flex items-center gap-2 mb-4 sm:mb-5">
-            <span
-              className="w-1.5 h-1.5 rounded-full bg-[#102944] dark:bg-sky-400"
-              aria-hidden="true"
-            />
-            <span className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.2em] text-[#102944] dark:text-sky-400 uppercase">
-              OUR APPROACH
+          {/* Eyebrow Badge Harmonized with Other Sections */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-5 sm:mb-6 w-fit">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse" />
+            <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase font-mono">
+              Our Approach
             </span>
           </div>
 
-          {/* Heading */}
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.12] mb-5 sm:mb-6">
-            From idea to impact.
+          {/* Heading with Signature Brand Gradient */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.14] mb-5 sm:mb-6">
+            From idea to <span className="text-gradient">impact.</span>
           </h2>
 
           {/* Description */}
@@ -99,12 +96,12 @@ export default function Process() {
                 delay: (index % 3) * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group relative pt-8 sm:pt-10 motion-reduce:transition-none"
+              className="group relative pt-8 sm:pt-10 motion-reduce:transition-none cursor-default"
             >
               {/* Base Hairline Divider */}
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-zinc-200 dark:bg-white/10" />
 
-              {/* Scroll-Triggered Animated Accent Hairline */}
+              {/* Scroll-Triggered Animated Accent Hairline with Brand Gradient & Hover Glow */}
               <motion.div
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
@@ -115,7 +112,7 @@ export default function Process() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 style={{ originX: 0 }}
-                className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-[#102944] to-[#1e4e7e] dark:from-sky-400 dark:to-blue-500 opacity-90"
+                className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-primary to-primary-light dark:from-sky-400 dark:to-primary-light opacity-90 group-hover:h-[2px] group-hover:shadow-[0_0_12px_rgba(50,145,255,0.4)] transition-all duration-300"
               />
 
               {/* Stage Meta: Number and Status Pip */}
@@ -125,16 +122,16 @@ export default function Process() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.35, delay: (index % 3) * 0.1 + 0.2 }}
-                  className="w-1.5 h-1.5 rounded-full bg-[#102944] dark:bg-sky-400"
+                  className="w-1.5 h-1.5 rounded-full bg-primary-light transition-transform duration-200 group-hover:scale-125"
                   aria-hidden="true"
                 />
-                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-[#102944] dark:text-sky-400">
+                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 group-hover:text-primary-light transition-colors duration-200">
                   {stage.num}
                 </span>
               </div>
 
-              {/* Stage Heading */}
-              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3 transition-colors duration-200 group-hover:text-[#102944] dark:group-hover:text-sky-400">
+              {/* Stage Heading with Electric Blue Hover */}
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3 transition-colors duration-200 group-hover:text-primary dark:group-hover:text-primary-light">
                 {stage.title}
               </h3>
 
