@@ -1,316 +1,152 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
-import {
-  Search,
-  Target,
-  Palette,
-  Code2,
-  Rocket,
-  CheckCircle2,
-  Sparkles,
-} from "lucide-react";
+import { motion } from "framer-motion";
 
-const steps = [
+interface Stage {
+  num: string;
+  title: string;
+  description: string;
+}
+
+const stages: Stage[] = [
   {
     num: "01",
-    phase: "Phase 01",
     title: "Discover",
-    subtitle: "Research & Feasibility",
     description:
-      "We dissect your business goals, interview target users, analyze technical constraints, and define high-leverage product opportunities.",
-    deliverables: [
-      "Product Opportunity Map",
-      "Technical Feasibility Audit",
-      "MVP Scope Definition",
-    ],
-    metric: "100% Scope Clarity",
-    icon: Search,
-    color: "from-blue-500 to-cyan-500",
-    badgeColor: "text-blue-500 dark:text-blue-400 bg-blue-500/10 border-blue-500/20",
-    glow: "shadow-cyan-500/20",
+      "We understand your goals, users, and challenges to define the right solution.",
   },
   {
     num: "02",
-    phase: "Phase 02",
-    title: "Strategy",
-    subtitle: "Architecture & Roadmap",
+    title: "Plan",
     description:
-      "We architect a resilient system blueprint, choose optimal cloud infrastructure, and outline a risk-free development schedule.",
-    deliverables: [
-      "System Architecture Blueprint",
-      "Database Schema Design",
-      "Phased Milestone Roadmap",
-    ],
-    metric: "Zero Technical Debt",
-    icon: Target,
-    color: "from-cyan-500 to-primary",
-    badgeColor: "text-cyan-500 dark:text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-    glow: "shadow-primary/20",
+      "We define the technical architecture, project scope, and development roadmap.",
   },
   {
     num: "03",
-    phase: "Phase 03",
     title: "Design",
-    subtitle: "UI/UX & Design Systems",
     description:
-      "We craft high-fidelity, accessible interfaces and bespoke design systems that make complex business workflows feel fluid and effortless.",
-    deliverables: [
-      "Comprehensive Design Tokens",
-      "Interactive High-Fidelity Prototypes",
-      "WCAG Accessibility Compliance",
-    ],
-    metric: "Frictionless UX",
-    icon: Palette,
-    color: "from-primary to-violet",
-    badgeColor: "text-primary dark:text-primary-light bg-primary/10 border-primary/20",
-    glow: "shadow-violet/20",
+      "We create intuitive user experiences and interfaces tailored to your business.",
   },
   {
     num: "04",
-    phase: "Phase 04",
-    title: "Build",
-    subtitle: "Full-Stack Engineering",
+    title: "Develop",
     description:
-      "We write clean, modular, sub-second codebases using Next.js and modern cloud-native edge services, backed by automated end-to-end testing.",
-    deliverables: [
-      "Clean Next.js & React Core",
-      "Serverless Edge Caching",
-      "Automated CI/CD Pipelines",
-    ],
-    metric: "Sub-Second Latency",
-    icon: Code2,
-    color: "from-violet to-fuchsia-500",
-    badgeColor: "text-violet bg-violet/10 border-violet/20",
-    glow: "shadow-fuchsia-500/20",
+      "We build, integrate, and test reliable software using modern technologies.",
   },
   {
     num: "05",
-    phase: "Phase 05",
     title: "Launch",
-    subtitle: "Deployment & Scaling",
     description:
-      "We orchestrate production rollout with zero downtime, real-time observability, and continuous telemetry to compound your business growth.",
-    deliverables: [
-      "Zero-Downtime Rollout",
-      "Real-Time Telemetry & APM",
-      "Continuous Growth Loops",
-    ],
-    metric: "99.98% SLA Uptime",
-    icon: Rocket,
-    color: "from-fuchsia-500 to-emerald-500",
-    badgeColor: "text-emerald-500 dark:text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-    glow: "shadow-emerald-500/20",
+      "We deploy your product, monitor its performance, and ensure a smooth release.",
+  },
+  {
+    num: "06",
+    title: "Improve & Scale",
+    description:
+      "We provide ongoing improvements as your product and business grow.",
   },
 ];
 
 export default function Process() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 80%", "end 80%"],
-  });
-
-  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-
   return (
     <section
       id="process"
-      className="py-16 md:py-24 bg-background relative transition-colors duration-300 overflow-hidden"
-      ref={containerRef}
+      aria-label="Software development process"
+      className="py-24 sm:py-28 md:py-36 bg-background relative transition-colors duration-300 border-t border-zinc-200/80 dark:border-white/10 overflow-hidden"
     >
-      {/* Decorative Ambient Background Glows */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/5 dark:bg-primary/10 blur-[140px] rounded-full pointer-events-none -translate-x-1/2 -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-violet/5 dark:bg-violet/10 blur-[140px] rounded-full pointer-events-none translate-x-1/2 -z-10" />
-
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        {/* Section Header with Badge and Gradient Typography */}
+      <div className="container mx-auto px-6 max-w-7xl">
+        
+        {/* Section Header with Scroll Fade-In */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px", amount: 0.2 }}
+          viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-          className="text-center mb-16 md:mb-20 max-w-2xl mx-auto"
+          className="mb-16 sm:mb-20 md:mb-24 max-w-3xl"
         >
-          <div className="inline-flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 mb-4 sm:mb-5">
-            <span className="text-[11px] sm:text-xs font-semibold tracking-wider text-zinc-600 dark:text-zinc-300 uppercase">
-              Proven Methodology
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2 mb-4 sm:mb-5">
+            <span
+              className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+              aria-hidden="true"
+            />
+            <span className="font-mono text-xs sm:text-[13px] font-semibold tracking-[0.2em] text-emerald-600 dark:text-emerald-400 uppercase">
+              OUR APPROACH
             </span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
-            From idea to <span className="text-gradient">impact.</span>
+          {/* Heading */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.12] mb-5 sm:mb-6">
+            From idea to impact.
           </h2>
 
-          <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
-            A disciplined, high-velocity engineering process built to turn ambitious concepts
-            into reliable market leaders.
+          {/* Description */}
+          <p className="text-base sm:text-lg md:text-xl text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed max-w-2xl">
+            A clear, collaborative process for building digital products that solve real business problems.
           </p>
         </motion.div>
 
-        {/* Timeline Container */}
-        <div className="relative">
-          {/* Static Track Guide Line */}
-          <div className="absolute left-[27px] md:left-1/2 top-0 bottom-0 w-[2px] bg-zinc-200 dark:bg-white/10 -translate-x-1/2" />
+        {/* Minimalist Editorial Timeline Grid with Scroll Animations */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 sm:gap-x-12 lg:gap-x-14 gap-y-12 sm:gap-y-16 lg:gap-y-20">
+          {stages.map((stage, index) => (
+            <motion.div
+              key={stage.num}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px", amount: 0.2 }}
+              transition={{
+                duration: 0.6,
+                delay: (index % 3) * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group relative pt-8 sm:pt-10 motion-reduce:transition-none"
+            >
+              {/* Base Hairline Divider */}
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-zinc-200 dark:bg-white/10" />
 
-          {/* Dynamic Scroll Progress Fill Line */}
-          <motion.div
-            className="absolute left-[27px] md:left-1/2 top-0 w-[2px] bg-gradient-to-b from-primary via-violet to-primary-light -translate-x-1/2 shadow-[0_0_12px_rgba(50,145,255,0.6)]"
-            style={{ height: lineHeight }}
-          />
+              {/* Scroll-Triggered Animated Accent Hairline */}
+              <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.75,
+                  delay: (index % 3) * 0.1 + 0.1,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                style={{ originX: 0 }}
+                className="absolute top-0 left-0 right-0 h-[1.5px] bg-gradient-to-r from-emerald-500 to-emerald-400 dark:from-emerald-400 dark:to-teal-300 opacity-80"
+              />
 
-          {/* Animated Continuous Travelling Light Beam */}
-          <motion.div
-            className="absolute left-[27px] md:left-1/2 w-1.5 h-36 bg-gradient-to-b from-transparent via-cyan-400 to-transparent -translate-x-1/2 blur-[2px] pointer-events-none z-10 opacity-80"
-            animate={{
-              top: ["-5%", "105%"],
-            }}
-            transition={{
-              duration: 5.5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
+              {/* Stage Meta: Number and Status Pip */}
+              <div className="flex items-center gap-2.5 mb-4 sm:mb-5">
+                <motion.span
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: (index % 3) * 0.1 + 0.2 }}
+                  className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400"
+                  aria-hidden="true"
+                />
+                <span className="font-mono text-xs sm:text-sm font-semibold tracking-wider text-emerald-600 dark:text-emerald-400">
+                  {stage.num}
+                </span>
+              </div>
 
-          {/* Timeline Steps List */}
-          <div className="space-y-12 md:space-y-20">
-            {steps.map((step, index) => {
-              const isEven = index % 2 === 0;
-              const isHovered = hoveredIndex === index;
-              const StepIcon = step.icon;
+              {/* Stage Heading */}
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-foreground mb-3 transition-colors duration-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400">
+                {stage.title}
+              </h3>
 
-              return (
-                <div
-                  key={step.num}
-                  className="relative flex items-center md:justify-between flex-col md:flex-row group"
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
-                >
-                  {/* Timeline Node Badge (Center Dot) */}
-                  <motion.div
-                    initial={{ scale: 0.7, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, margin: "-40px" }}
-                    transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute left-[27px] md:left-1/2 -translate-x-1/2 z-20"
-                  >
-                    <div
-                      className={`relative w-14 h-14 rounded-2xl bg-white dark:bg-[#0c0e17] border transition-[transform,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] flex items-center justify-center shadow-lg ${
-                        isHovered
-                          ? "border-primary dark:border-primary-light scale-110 shadow-primary/30"
-                          : "border-zinc-200 dark:border-white/15"
-                      }`}
-                    >
-                      {/* Active breathing pulse ring */}
-                      <span
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${step.color} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
-                      />
-
-                      {/* Number or Icon */}
-                      <div className="relative flex items-center justify-center">
-                        <span className="text-sm font-bold font-mono text-zinc-900 dark:text-white group-hover:hidden">
-                          {step.num}
-                        </span>
-                        <StepIcon className="w-5 h-5 text-primary-light hidden group-hover:block transition-all duration-200 transform group-hover:scale-110" />
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Horizontal Connector Line on Desktop */}
-                  <div
-                    className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] transition-all duration-300 pointer-events-none ${
-                      isEven
-                        ? "right-1/2 w-16 bg-gradient-to-l"
-                        : "left-1/2 w-16 bg-gradient-to-r"
-                    } ${
-                      isHovered
-                        ? "from-primary/60 to-transparent"
-                        : "from-zinc-200 dark:from-white/10 to-transparent"
-                    }`}
-                  />
-
-                  {/* Step Content Card */}
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: 24,
-                    }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-40px", amount: 0.15 }}
-                    transition={{ duration: 0.65, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-                    className={`w-full md:w-5/12 pl-18 sm:pl-20 md:pl-0 ${
-                      isEven ? "md:text-left md:mr-auto" : "md:text-left md:ml-auto"
-                    }`}
-                  >
-                    <div
-                      className={`relative p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl bg-white dark:bg-[#0c0e17]/85 border transition-[transform,box-shadow,border-color] duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] backdrop-blur-md overflow-hidden gpu-accelerated active:scale-[0.99] ${
-                        isHovered
-                          ? "border-primary/50 dark:border-primary/40 -translate-y-1.5 shadow-xl dark:shadow-[0_15px_40px_-10px_rgba(0,112,243,0.25)]"
-                          : "border-zinc-200/90 dark:border-white/10 shadow-sm hover:shadow-md"
-                      }`}
-                    >
-                      {/* Corner Accent Light on Hover */}
-                      <div
-                        className={`absolute -top-16 -right-16 w-32 h-32 rounded-full bg-gradient-to-br ${step.color} blur-2xl opacity-0 group-hover:opacity-30 dark:group-hover:opacity-25 transition-opacity duration-500 pointer-events-none`}
-                      />
-
-                      {/* Header Row: Phase Tag + Metric Badge */}
-                      <div className="flex items-center justify-between gap-3 mb-3.5 sm:mb-4">
-                        <div className="flex items-center gap-2">
-                          <span
-                            className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gradient-to-br ${step.color} flex items-center justify-center text-white text-xs shadow-xs shrink-0`}
-                          >
-                            <StepIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                          </span>
-                          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400 font-mono">
-                            {step.phase}
-                          </span>
-                        </div>
-
-                        <span
-                          className={`inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded-md text-[10px] sm:text-[11px] font-semibold border ${step.badgeColor} shrink-0`}
-                        >
-                          {step.metric}
-                        </span>
-                      </div>
-
-                      {/* Title & Subtitle */}
-                      <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight mb-1">
-                        {step.title}
-                      </h3>
-                      <p className="text-[11px] sm:text-xs font-semibold text-primary-light uppercase tracking-wider mb-2 sm:mb-3">
-                        {step.subtitle}
-                      </p>
-
-                      {/* Description */}
-                      <p className="text-xs sm:text-sm md:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed mb-4 sm:mb-5 font-normal">
-                        {step.description}
-                      </p>
-
-                      {/* Key Deliverables Checklist */}
-                      <div className="pt-3.5 sm:pt-4 border-t border-zinc-100 dark:border-white/5 space-y-1.5 sm:space-y-2">
-                        {step.deliverables.map((item, dIdx) => (
-                          <div
-                            key={dIdx}
-                            className="flex items-center gap-2 text-[11px] sm:text-xs text-zinc-600 dark:text-zinc-300"
-                          >
-                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                            <span>{item}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              );
-            })}
-          </div>
+              {/* Stage Description */}
+              <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
+                {stage.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );
 }
-

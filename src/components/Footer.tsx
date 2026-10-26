@@ -8,17 +8,16 @@ const footerLinks = {
   Company: [
     { name: "About", href: "/#about" },
     { name: "Services", href: "/#services" },
-    // { name: "Work", href: "/#work" },
-    { name: "Contact", href: "viber://chat?number=%2B639120509416" },
+    { name: "Process", href: "/#process" },
   ],
-  // Resources: [
-  //   { name: "Privacy Policy", href: "/privacy" },
-  //   { name: "Terms of Service", href: "/terms" },
-  // ],
   Social: [
     { name: "Facebook Page", href: "https://www.facebook.com/profile.php?id=100071878242948" },
     { name: "GitHub", href: "https://github.com/TechCraftTechnologies" },
     // { name: "X", href: "https://x.com/TechCraftTechnologies" },
+  ],
+  Contact: [
+    { name: "techcrafttechnologies@gmail.com", href: "mailto:techcrafttechnologies@gmail.com" },
+    { name: "Start a Conversation", href: "viber://chat?number=%2B639120509416" },
   ],
 };
 
@@ -88,11 +87,11 @@ export default function Footer() {
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group"
+                      className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white transition-colors inline-flex items-center gap-1 group break-all sm:break-normal"
                     >
-                      {link.name}
-                      {category === "Social" && (
-                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all" />
+                      <span>{link.name}</span>
+                      {(category === "Social" || category === "Contact") && (
+                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-y-1 translate-x-1 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 transition-all shrink-0" />
                       )}
                     </Link>
                   </li>
